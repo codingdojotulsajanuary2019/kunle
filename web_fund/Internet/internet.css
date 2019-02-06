@@ -1,0 +1,153 @@
+*{
+    font: sans-serif;
+}
+h1{
+    font-size: 50px;
+    margin: 12px 0px 0px 14px;
+    display: inline-block;
+}
+span{
+    color: #004080;
+}
+button{
+    margin: 5px 0px 0px;
+    border-radius: 5px;
+    padding: 10px 10px 20px 10px;
+    width: 170px;
+    height: 30px;
+    color: white;
+}
+#blanket{
+    /* opacity: .5; */
+    width: 935px;
+    height: 970px;
+    padding: 0px 5px;
+    margin: 20px auto;
+    /* border: dotted red; */
+}
+#header{
+    /* opacity: .5; */
+    height: 130px;
+    width: 925px;
+    /* border: dotted red; */
+    font-size: 15px;
+}
+#header h2{
+    padding: 5px 0px 10px 10px;
+    block-size: 30px;
+    box-sizing: content-box;
+    font-size: 30px;
+    background-color: #004080;
+    color: white;
+    margin-top: -15px 
+}    
+.img{
+    display: inline-block;
+    vertical-align: top;
+}
+.center{
+    margin-left: 220px;
+}
+#sidebar{
+    height: 520px;
+    width: 180px;
+    /* border: dotted red; */
+    display: inline-block;
+    vertical-align: top;
+    padding: 10px 10px 0px 5px;
+}
+#ninja{
+    background-image: url(images/ad_background.png);
+    height: 260px;
+    text-align: center;
+    margin-top: 50px;
+    padding-top: 10px;
+}
+#ninja h3{
+    color: white;
+    font-size: 20px;
+}
+#content{
+    /* opacity: .5; */
+    height: 650px;
+    width: 705px;
+    /* border: dotted red; */
+    display: inline-block;
+    margin-left: 12px;
+}
+#content span{
+    color: #00ccff;
+}
+#directory{
+    height: 70px;
+    width: 100%;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #33d6ff;
+}
+.dns{
+    height: 20px;
+    width: 30px;
+    /* border: dotted red; */
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 425px;
+    margin-top: 7px;
+}
+.topright{
+    height: 12px;
+    width: 170px;
+    /* border: dotted red; */
+    display: inline-block;
+    vertical-align: top;
+    text-align: right;
+    padding-bottom: 35px;
+    margin-left: -28px;
+}
+.topright p{
+    font-size: 9px;
+    display: inline-block;
+    margin: 0px 0px 0px 2px;
+}
+.topright a{
+    font-size: 25px;
+    text-decoration: none;
+    margin-bottom: -45px;
+    color: #00ccff;
+}
+.home{
+    margin-bottom: 30px
+}
+.call{
+    margin-top: 12px
+}
+.bottom{
+    display: inline-block;
+    width: 560px;
+    border-top: 5px solid #004080;
+    border-right: 5px solid #004080;
+    vertical-align: top; 
+    padding-left: 16px;
+}
+.bottom p{
+    margin-top: 5px;
+    margin-bottom: 0px;
+}
+.base{
+    border-top: 5px solid #004080;
+    border-left: 5px solid #004080;
+    margin-right: -5px;
+    padding-top: 10px;
+    padding-left: 10px;   
+}
+ #content h3{
+    margin: 15px 0px 0px;
+    color: #004080;
+    font-size: 15px;
+}
+p{
+    margin: 2px;
+    font-size: 15px;
+}
+li{
+    font-size: 15px;
+}

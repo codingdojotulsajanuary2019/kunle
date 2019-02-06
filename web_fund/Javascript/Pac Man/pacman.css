@@ -1,0 +1,22 @@
+.row div{
+    width: 10px;
+    height: 10px;
+    border: 1% solid black;
+    display: inline-block;
+}
+.wall{
+    background-color: blue;
+}
+.coin{
+    background: url("img/coin-icon.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 
+}
+.pacman{
+    background: url();
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:7%;
+
+}

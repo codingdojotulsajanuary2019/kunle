@@ -1,0 +1,42 @@
+/*CSS reset settings here*/
+*{
+    margin: 10px;
+    border: 10px;
+    color: white;
+    padding: 2px;
+}
+
+a {color: cyan;}
+#all{
+    margin: 10px 20px 5px 10px;
+    width: 950px;
+    background-color: navy;
+}
+#header{
+    height: 70px;
+    width: 920px;
+    background-color: red;
+    display: block;
+}
+#side_bar{
+    margin: 10;
+    background-color: darkcyan; 
+    display: inline-block;
+    height: 35%;
+    width: 220px;
+    vertical-align: top;
+}
+#main_body{
+    background-color: black;
+    display: inline-block;
+    width: 660px;
+}
+#footer{
+    display: block;
+    margin: 10px;
+    background-color: grey;
+    height: 50px;
+}
+div{
+    border-radius: 10px;
+}

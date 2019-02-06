@@ -1,0 +1,143 @@
+*{
+    /* outline: 1px dotted red; */
+    margin: 10px;
+    font-family: sans-serif;
+}
+#wrapper{
+    width: 950px;
+    height: 1040px;
+    background-color: #4d1933;
+    margin: 0px auto;
+    padding: 10px;
+}
+.top{
+    width: 970px;
+    height: 60px;
+    background: #f2f2f2;
+    margin: -10px -10px 10px;
+}
+.top h1,h2{
+    display: inline-block;
+}
+.top .name{
+    height: 50px;
+    width: 460px;
+    font-size: 38px;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    margin-right: 24px;
+    margin-left: 20px;
+}
+.image{
+    height: 270px;
+    width:380px;
+    display: inline-block;
+    border: 5px solid #f2f2f2;
+}
+.content{
+    height: 280px;
+    width:515px;
+    display: inline-block;
+    vertical-align: top;
+    font-size: 17px;
+    background-color: #f2f2f2;
+}
+.content a{
+    color: black;
+}
+.content h3{
+    background-color: #737373;
+    height: 23px;
+    width: 495px;
+    margin: 0px;
+    padding: 10px;
+}
+.subcontent{
+    height: 590px;
+    width: 293px;
+    background-color: #f2f2f2;
+    display: inline-block;
+    vertical-align: top;
+}
+h3{
+    background-color: #737373;
+    height: 23px;
+    width: 273px;
+    margin: 0px;
+    padding: 10px;
+    color: white;
+}
+.subcontent .upper{
+    height: 145px;
+    width: 293px;
+    margin: 0px;
+}
+#subcontent p{
+    text-align: justify;
+    font-size: 16px;
+}
+h4{
+    background-color: #737373;
+    height: 20px;
+    width: 273px;
+    margin: 0px 0px 5px;
+    padding: 10px;
+    color: white;
+}
+.tech {
+    margin-top: 66px;
+}
+.famcontact {
+    margin-top: 48px;
+}
+.fiveEleven {
+    margin-top: 5px;
+}
+.subcontent img{
+    height: 40px;
+    width: 40px;
+    display: inline-block;
+    margin: 5px;
+    text-align: center;
+}
+.subcontent a{
+    display: block;
+    text-align: center;
+    background: #003300;
+    border-radius: 5px;
+    font-size: 13px;
+    color: white;
+    text-decoration: none;
+    padding: 5px;
+    width: fit-content;
+    margin: 0px auto;
+}
+.bottom{
+    width: 970px;
+    height: 30px;
+    background: #f2f2f2;
+    margin: 15px -10px -10px;
+    text-align: center;
+    padding-top: 10px;
+}
+li img{
+    height: 20px;
+    width: 20px;
+    display: inline-block;
+    margin: 0px 2px 0px 3px;
+}
+ul{
+    width: 970px;
+    height: 30px;
+    padding: 0px;
+    margin: 0px -10px;
+    text-align: center;
+    background: #f2f2f2;
+    padding-top: 10px;
+}
+ul li{
+    display: inline-block;
+    height: 30px;
+    margin: 0px;
+    font-style: italic;
+    text-decoration: underline;
+}

@@ -1,0 +1,65 @@
+Sigma
+function sigma(num){
+  var sum=0;
+  for (var i=0; i<=num; i++){
+    sum+=i;
+  }
+  return sum;
+}
+console.log(sigma());
+
+Factorial
+function factorial(num){
+  var sum=1
+  for (var i=1; i<=num; i++){
+    sum*=i;
+  }
+  return sum;
+}
+console.log(factorial()); 
+
+Array: Second-to-Last
+function Return(arr){
+  var x = arr[arr.length-2]
+  if(arr.length<2){
+    return null;
+  }
+return x;
+}
+console.log(Return());
+
+Array: Nth-to-Last
+function Return(arr,y){
+  var x=arr[arr.length-y];
+  if(arr.length<y){
+    return null;
+  }
+return x;
+}
+console.log(Return([5,2],3));
+
+Array: Second-Largest
+function Sec-Largest(arr){
+  var SMax=0;
+  var max=Math.max.apply(null,arr);
+  for(var i=0; i<arr.length; i++){
+    if (arr[i]==max){
+      max=max;
+    }
+    else if(arr[i]>big){
+      big=arr[i];
+    }
+  }
+  return big;
+}
+console.log(Sec-largest());
+
+Double Trouble
+function Trouble(arr){
+  var x=[];
+  for(var i=0; i<arr.length; i++){
+    x.push(arr[i],arr[i]);
+  }
+return x;
+}
+console.log(Trouble());

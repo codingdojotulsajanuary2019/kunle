@@ -1,0 +1,43 @@
+function array(x,y){
+    for(var i =0; i < x.length; i++){
+        var count = 0;
+        if(x[i] > y){
+            count++;
+        }
+        return count;
+    }
+}
+console.log(array(x,y));
+
+function MaxMinAvg(arr){
+    var max = Math.max.apply(null, arr);
+    var min = Math.min.apply(null, arr);
+    var avg = 0;
+    for(var i = 0; i< arr.lengthg; i++){
+        avg+=arr[i];
+    }
+    avg = avg / arr.length;
+    return max,min,avg;
+}
+console.log(MaxMinAvg(arr));
+
+function replaceNegatives(arr){
+    for(var i = 0; i< arr.lengthg; i++){
+        if(arr[i] < 0){
+            arr[i] = "dojo";
+        }
+    }
+    return arr;
+}
+console.log(replaceNegatives(arr));
+
+function remVal(arr, start, end){
+    var diff = end - start + 1;
+    for (var i = end+1; i<arr.length; i++){
+        var temp = arr[i-diff];
+        arr[i-diff]=arr[i];
+        arr[i] = temp;
+    }
+    arr.length = arr.length-diff;
+    return arr;
+}

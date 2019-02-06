@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        body{
+            background-color: black;
+            margin: 0;
+            font-size: 0;
+        }
+        .row div{
+            width: 30px;
+            height: 30px;
+            /* border: 1px solid black; */
+            display: inline-block;
+        }
+        .wall{
+            background-color: blue;
+        }
+        .coin{
+            background: url("img/coin.png");
+            background-position: center;
+            background-size: 50%;
+            background-repeat: no-repeat;
+        }
+        .empty{
+            background: none;
+        }
+        .ghost{
+            background: url('img/ghost.gif');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 75%
+        }
+        #pacman{
+            height: 30px;
+            width: 30px;
+            background: url('img/pacman.gif');
+            background-position: center;
+            background-size: 75%;
+            background-repeat: no-repeat;
+            position: absolute;
+        }
+        #score{
+            color: yellow;
+            font-family: "comic sans MS";
+            margin: 10px;
+            font-size: 16pt;
+        }
+    </style>
+
+    <!-- HTML GOES HERE -->
+    <div id="board"></div>
+    <div id="pacman"></div>
+    <div id="score">Score:</div>
+    <div class="ghost"></div>
+    <script type="text/javascript">
+        // JavaScript GOES HERE
+        // 2 = wall; 1 = coin; 0 = space;
+        var board = [
+            [2,2,2,2,2,2,2,2,2,2],
+            [2,0,1,1,1,1,1,1,1,2],
+            [2,1,1,1,1,1,1,1,1,2],
+            [2,1,1,1,1,1,1,1,1,2],
+            [2,1,1,1,1,1,3,1,1,2],
+            [2,1,1,1,1,1,1,1,1,2],
+            [2,1,1,1,1,1,1,1,1,2],
+            [2,1,1,1,1,1,1,1,1,2],
+            [2,1,1,1,1,1,1,1,1,2],
+            [2,2,2,2,2,2,2,2,2,2]
+        ];
+        var score = 0;
+        var pacman = {
+            y: 1,
+            x: 1
+        };
+        function displayBoard(){
+            var output = "";
+            for(var y=0; y<board.length; y++){
+                output += "\n<div class='row'>"
+                for(var x=0; x<board[y].length; x++){
+                    if(board[y][x] == 2){
+                        output += "\n\t<div class='wall'></div>";
+                    }
+                    else if(board[y][x] == 1){
+                        output += "\n\t<div class='coin'></div>";
+                    }
+                    else if(board[y][x] == 0){
+                        output += "\n\t<div class='empty'></div>";
+                    }
+                    else if(board[y][x] == 3){
+                        output += "\n\t<div class='ghost'></div>";
+                    }
+                }
+                output += "\n</div>";
+            }
+            document.getElementById('board').innerHTML = output;
+        }
+        function displayPacman(){
+            document.getElementById('pacman').style.left = pacman.x*30+"px";
+            document.getElementById('pacman').style.top = pacman.y*30+"px";
+        }
+        function displayScore(){
+        document.getElementById('score').innerHTML = "Score: "+score;
+        }
+        document.onkeydown = function(e){
+            // RIGHT
+            if(e.keyCode == 39 && board[pacman.y][pacman.x+1] !=2){
+                pacman.x++;
+            }
+            // LEFT
+            else if(e.keyCode == 37 && board[pacman.y][pacman.x-1] !=2){
+                pacman.x--;
+            }
+            // UP
+            else if(e.keyCode == 38 && board[pacman.y-1][pacman.x] !=2){
+                pacman.y--;
+            }
+            // DOWN
+            else if(e.keyCode == 40 && board[pacman.y+1][pacman.x] !=2){
+                pacman.y++;
+            }
+            if(board[pacman.y][pacman.x] == 1){
+                board[pacman.y][pacman.x] = 0;
+                score+=10;
+                displayBoard();
+                displayScore();
+            }
+            displayPacman();
+        }
+        displayBoard();
+        displayPacman();
+    </script>
+</body>
+
+</html>
+<!--
+    =================
+       TO-DO LIST
+    ================
+    Have JS display the game board (the rows, walls, coins, etc.)
+    Have Pacman move up and down
+    Start Pacman at the first empty space
+    When Pacman is on a coin, change game board to “empty”
+    Pacman cannot move into a spot that is marked as a “wall”
+    Create and increment a score total
+    Create a ghost object
+    When Pacman collides w/ the ghost, display Game Over and button to reset the game board
+-->

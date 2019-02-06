@@ -1,0 +1,144 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+p{font-size: 15px;}
+span{
+    color: yellow;
+}
+#wrapper{
+    margin: auto;
+    background-color: #084d91;
+    width: 800px;
+    min-height: 500px;
+}
+#wrapper #header a{
+    color: white;
+}
+#wrapper #main_content a{
+    color: white;
+}
+.sidebar ul li{
+    list-style-position: inside;
+    color: yellow;
+}
+.subcontent ul li{
+    list-style-type: none;
+}
+#header{
+    height: 145px;
+    width: 780;
+    background-color:#084d91;
+    padding: 5px;
+}
+.logo{
+    height: 60px;
+    width: 400px;
+    display: inline-block;
+}
+.topright{
+    height: 30px;
+    width: 270px;
+    display: inline-block;
+    margin: 10px 10px 20px 70px;
+    background-color: black;
+    vertical-align: top;
+    text-align: center;
+    padding: 10px 0px 10px;
+    border-radius: 6px;
+}
+.topright button{
+    background-color: #084d91;
+    color: white;
+    block-size: 30px;
+}
+.topright input{
+    block-size: 30px;
+    text-align: center;    
+}
+.nav{
+    height: 25px;
+    width: 720px;
+    background-color:#089191;;
+    text-align: center;
+    margin: 0px 20px 0px 50px;
+    vertical-align: bottom;
+    font-size: 16px;
+    padding-top: 10px;
+    border-radius: 6px;
+} 
+.nav a{
+    margin: 25px;
+    text-decoration: none;
+    color: #089191;
+} 
+.sidebar{
+    height: 220px;
+    width: 150px;
+    padding: 20px 0px 0px 20px;
+    display: inline-block;
+    text-align: center;
+    vertical-align: top;
+    background-color: #084d91;
+    margin-left: 45px;
+}
+#side_content{
+    height: 260px;
+    width: 580px;
+    display: inline-block;
+    text-align: center;
+    margin-top: 10px;
+    background-color:#084d91;
+    color: white;
+}
+.content{
+    height: 100px;
+    width: 550px;
+    display: inline-block;
+    text-align: center;
+    vertical-align: top;
+    background-color: #084d91;
+}
+.subcontent{
+    height: 120px;
+    width: 260px;
+    padding: 5px;
+    margin: 15px;
+    display: inline-block;
+    text-align: center;
+    font-size: 17px;
+    font-style: italic;  
+    background-color: #084d91;
+}
+#base_content{
+    width: 750px;
+    padding: 10px 0px 10px 50px;
+    background-color: white;
+    margin-bottom: 10px;
+    height: 200px;
+}
+.base{
+    width: 280px;
+    height: 170px;
+    display: inline-block;
+    background-color: white;
+    text-align: center;
+    padding: 0px 75px 0px 10px;
+    border-top: 3px solid blue;
+    vertical-align: top;
+}
+.base a{
+    color: #089191;
+}
+#footer{
+    height: 60px;
+    width: 750px;
+    background-color: #084d91;
+    text-align: center;
+    padding-top: 20px;
+    color: #089191;
+}
+.nav p{
+    font-size: 11px;
+    margin-top: 20px;
+}

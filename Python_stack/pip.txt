@@ -1,0 +1,13 @@
+pip install Django==1.11.9 (Installs Django 1.11.9).
+pip list (printed a list of files:
+        Django     1.11.9
+        pip        19.0.1
+        pytz       2018.9
+        setuptools 40.7.3
+        wheel      0.32.3
+pip3 list (showed list of files without Django and Wheels but Virtualenv)
+pip install Django==1.11.9 (cant reinstall Django again because it already existed)
+pip freeze (showed Django and pytz)
+pip uninstall Django (uninstalls Django)
+pip show Django (came back blank because Django had been uninstalled)
+pip search Flask (gave a long list of different Flask files)
