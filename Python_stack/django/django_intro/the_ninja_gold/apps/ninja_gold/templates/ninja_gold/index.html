@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'ninja_gold/style.css' %}">
+    <title>ninja_gold</title> 
+</head>
+<body>
+    <div class="container">
+        <div class="top">
+            <h3 class="top-text">Total gold earned:</h3>
+            <h3 class="count">{{request.session.total}}</h3>
+            <form class="options" action="/game_type">
+                <select class="options" name="game_choice">
+                    <option value="">Choose game type</option>
+                    <option value="1">Earn 300 golds in 10plays</option>
+                    <option value="2">Earn 300 golds from the casino only in 10 plays</option>
+                </select>
+            </form>
+            <a class="reset" href="/reset">Reset</a>
+        </div>
+        <div>
+            <div class="box" >
+                <form action="/process_money" method="POST">
+                    {% csrf_token %}
+                    <h3>Farm</h3>
+                    <p>Earn 10-20 golds</p>
+                    <input type="hidden" name="gold" value="farm">
+                    <button type="submit">Find Gold</button>
+                </form>
+            </div>
+            <div class="box" >
+                <form action="/process_money" method="POST">
+                    {% csrf_token %}
+                    <h3>Cave</h3>
+                    <p>Earn 1-10 golds</p>
+                    <input type="hidden" name="gold" value="cave">
+                    <button type="submit">Find Gold</button>
+                </form>
+            </div>
+            <div class="box" >
+                <form action="/process_money" method="POST">
+                    {% csrf_token %}
+                    <h3>House</h3>
+                    <p>Earn 1-5 golds</p>
+                    <input type="hidden" name="gold" value="house">
+                    <button type="submit">Find Gold</button>
+                </form>
+            </div>  
+            <div class="box" >
+                <form action="/process_money" method="POST">
+                    {% csrf_token %}
+                    <h3>Casino</h3>
+                    <p>Win upto 50 golds</p>
+                    <input type="hidden" name="gold" value="casino">
+                    <button type="submit">Find Gold</button>
+                </form>
+            </div>
+        </div>
+        <div>
+            <h4>Activities</h4>
+            <div class="bottom">
+                {{request.session.message|safe}}
+            </div>
+        </div> 
+    </div> 
+</body>
+</html>

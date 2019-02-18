@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Email Validation with DB</title>
+</head>
+<body>
+    <div class="container-fluid bg-secondary mt-5">
+        <div class="container col-lg-6 border border-info card bg-light mb-3 mt-5">
+            <h2 class="container col-lg-12 bg-primary text-light">Register here</h2>
+            <form action="/register" method="post">
+                <div class="form-group">
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            {% for message in messages %}
+                            <p class="text-danger">{{message}}</p>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+                    <label for="Input1">Name</label>
+                    <input type="text" name="fullname" class="form-control" id="Input1" placeholder="Full Name">
+                    <label for="InputEmail1">Email address</label>
+                    <input type="email" name="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small><br>
+                </div>
+                <button type="submit" class="btn btn-primary mb-2 float-right">Submit</button>
+            </form>
+        </div>
+    </div>   
+</body>
+</html>

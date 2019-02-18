@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Update User</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css" integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container navbar navbar-expand-lg navbar-dark bg-dark box-shadow col-6">
+        <div class="container d-flex justify-content-between mr-5 col-6">
+            {% for user in edit_this_user %}
+            <h2 class="navbar-brand ml-5 d-flex align-items">Edit User {{user['id']}}</h2>
+            <a class="ml-5" href="/users">Home</a>
+        </div>
+    </div>
+    <div class="container col-6">
+        <div class="mb-3">
+            <form action="/users/{{user['id']}}/update" method="post">
+                <label for="firstName">First Name</label>
+                <input class="form-control" type="text" name="fname" value={{user['first_name']}}>
+                <label for="lastName">Last Name</label>
+                <input class="form-control" type="text" name="lname" value={{user['last_name']}}>
+                <label for="lastName">Email</label>
+                <input class="form-control" type="text" name="email" value={{user['email']}}}>
+                <hr>
+                <input class="btn btn-primary btn-lg" type="submit" value="Update"> 
+            </form>
+        </div>
+        <hr>
+        <a href="/users/{{user['id']}}">Show User</a>
+        {% endfor %}
+    </div>
+</body>
+</html>

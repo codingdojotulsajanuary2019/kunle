@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'checkboard.css') }}">
+    <title>Checkboard Assignment</title>
+
+</head>
+<body>
+    {% for x in range(number) %}
+        <div class="row">
+            {% for i in range(number) %}
+            <div class="white" style="background-color:{{y}}"></div>
+            <div class="red" style="background-color:{{z}}"></div>
+            {% endfor %}
+        </div> 
+        <div class="row">
+            {% for j in range(number) %}
+            <div class="red" style="background-color:{{z}}"></div>
+            <div class="white" style="background-color:{{y}}"></div>
+            {% endfor %}
+        </div>
+    {% endfor %}
+</body>
+</html>

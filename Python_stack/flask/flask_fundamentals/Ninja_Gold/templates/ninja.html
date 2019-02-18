@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Ninja Gold</title>
+</head>
+<body>
+    <div class="container-fluid bg-light pt-3 text-center">
+        <div class="container col-10 border border-dark bg-secondary p-3" style="height:600px;">
+            <div class="m-4 bg-danger text-light">
+                <h3 class="d-inline-block align-top">Total gold earned:</h3>
+                <div class="d-inline-block align-top ml-3">
+                    <h3>{{session['total']}}</h3>
+                </div>
+            </div>
+            <div class="container m-2 border border-light rounded pb-3 pt-3 col-2 bg-secondary text-center d-inline-block text-light">
+                <div class="container p-2 col-12">
+                    <form action="/process" method="post">
+                        <h3>Farm</h3>
+                        <p>Earn upto 20golds</p>
+                        <input type="hidden" name='gold' value='farm'>
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">Find Gold</button>
+                    </form>
+                </div>
+            </div>
+            <div class="container m-2 pb-3 pt-3 d-inline-block border border-light rounded col-2 bg-secondary text-center text-light">
+                <div class="container p-2 col-12">
+                    <form action="/process" method="POST"> 
+                        <h3>Cave</h3>
+                        <p>Earn 1-10 golds</p>
+                        <input type="hidden" name='gold' value='cave'>
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">Find Gold</button>
+                    </form>
+                </div>
+            </div>
+            <div class="container m-2 pb-3 pt-3 d-inline-block border border-light rounded col-2 bg-secondary text-center text-light">
+                <div class="container p-2 col-12">
+                    <form action="/process" method="post">
+                        <h3>House</h3>
+                        <p>Earn 1-5 golds</p>
+                        <input type="hidden" name='gold' value='house'>
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">Find Gold</button>
+                    </form>
+                </div>
+            </div>
+            <div class="container m-2 pb-3 pt-3 d-inline-block border border-light rounded col-2 bg-secondary text-center text-light">
+                <div class="container p-2 col-12">
+                    <form action="/process" method="post">
+                        <h3>Casino</h3>
+                        <p>Win upto 50golds</p>
+                        <input type="hidden" name='gold' value='casino'>
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">Find Gold</button>
+                    </form>
+                </div>
+            </div>
+            <!-- <div class="card border-dark overflow-auto col-6" style="height:200px; padding: 0px;">
+                <div class="card-header w-100">Your activities</div>
+                <div class="card-body text-dark overflow-auto">
+                    <p class="card-text"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse explicabo non quidem, sint architecto maxime veritatis itaque nam, vel facere minima aut, deleniti dolores magnam saepe nihil voluptatibus suscipit dicta?  Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <p class="card-text"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse explicabo non quidem, sint architecto maxime veritatis itaque nam, vel facere minima aut, deleniti dolores magnam saepe nihil voluptatibus suscipit dicta?  Some quick 
+                    example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+            </div> -->
+                   
+            <div class="m-4 p-3">
+                <h4 class="text-justify ml-5 pl-5">Activities:</h4>
+                <div class="container border text-overflow-auto border-dark text-justify col-10" style="height:100px; color:blue; list-style-type: none;">
+                    {{session['history']|safe}}
+                </div>
+            </div>
+        </div>
+    </div>  
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Create and Read Pets</title>
+</head>
+<body>
+    <div class="container col-sm-6 col-md-5 col-lg-6 border border-info card bg-light mb-3">
+        <h2 class="container col-6 bg-dark text-light">All the Pets!</h2>
+        <div class="container col-6">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Type</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for one_pets in all_pets %}
+                    <tr>
+                        <td>{{one_pets['id']}}</td>
+                        <td>{{one_pets['name']}}</td>
+                        <td>{{one_pets['type']}}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <h3 class="container col-6 bg-dark text-light">Add a Pet</h3>
+        <form action="/add_pet" method="post">
+            <div class="container col-6 form-group">
+                <p>Name <input class="form-control" type="text" name="pname"></p>
+                <p>Type <input class="form-control" type="text" name="ptype"></p>
+                <input class="btn btn-primary" type="submit" value="Add">
+            </div>
+        </form>
+    </div>
+</body>
+</html>

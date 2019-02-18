@@ -1,0 +1,6 @@
+"Access denied for user 'root'@'localhost' (using password: YES)"):
+    Had to change password on mysqlconnection.py from "root" to my set password
+
+No default value set for "created_at"
+    NOW() not 'NOW()'
+

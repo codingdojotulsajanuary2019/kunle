@@ -1,0 +1,15 @@
+body{
+    margin: 20px auto;
+    width: 800px;
+    height: 500px;
+}
+.row div{
+    height: 70px;
+    width: 70px;
+    margin: -2px;
+    border: 1px solid black;
+    display: inline-block;
+}
+.red{
+    background-color: brown;
+}

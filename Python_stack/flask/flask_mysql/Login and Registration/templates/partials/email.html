@@ -1,0 +1,19 @@
+{% if found == True %}
+<p class="text-danger">Email has been taken</p>
+{% endif %}
+{% if found == False %}
+<p class="text-success">Email is valid</p>
+{% endif %}
+
+
+$('#myForm').submit(function(){     // listen for when the #myForm element is submitted
+    $.ajax({
+       url: '/new_destination',
+       method: 'POST',
+       data: $('#myForm').serialize()
+     })
+     .done(function(response){
+          console.log(response);
+     })
+     return false;                // return false to disable the normal submission of the form
+});

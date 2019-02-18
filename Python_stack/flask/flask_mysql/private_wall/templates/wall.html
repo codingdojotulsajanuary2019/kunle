@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>User login</title>
+</head>
+<div class="container-fluid bg-white">
+    <div class="container col-12 navbar navbar-dark bg-secondary text-light mb-3">
+        <h2>CodingDojo Wall</h2>
+        <h5 class="offset-7">Welcome, {{username}}!</h5>
+        <a href="logout">Log Out</a>
+    </div>
+    <div class="container col-6 m-0 bg-light d-inline-block align-top ml-4">
+        <div class="container col-6 m-0 bg-light">
+            <h3 class="display-6 mb-5"><span class="text-warning">{{msg_num}}</span> Message(s) for You</h3>
+        </div>       
+        {% for msg in message %}
+        <div class="container mb-3">
+            <p class="font-weight-bold mb-0">{{msg['first_name']}} <span class="font-italic font-weight-normal">said</span></p>
+            <div class="container border">               
+                <p>{{msg['message']}}</p>
+            </div>
+            <p class="mb-0 d-inline-block">{{msg['created_at']}}</p>
+            <a href="/delete/{{msg['id']}}" class="float-right">Delete</a><br>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="container col-5 m-0 bg-light d-inline-block bg-light ml-5 mr-0">
+        <h3 class="mb-3">Send Messages</h3>
+        <span class="text-success">You have sent {{num_sent |default (0)}} messages so far.</span>  
+        {% for users in others %}
+        <div class="form-group">      
+            <form action="/user/{{users['id']}}" method="post">
+                <label for="Textarea" class="font-weight-bold">{{users['first_name']}}</label>
+                <textarea name="message" multiple class="form-control" rows="3"></textarea>
+                <button type="submit" class="btn btn-primary float-right m-2">Send</button>
+            </form>         
+        </div><br><br>
+        {% endfor %}
+    </div>
+</div>
