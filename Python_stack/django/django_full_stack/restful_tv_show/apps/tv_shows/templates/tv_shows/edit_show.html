@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Edit Show</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css" integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container navbar navbar-expand-lg navbar-dark bg-dark box-shadow col-6">
+        <div class="container d-flex justify-content-between col-12 mr-0 ml-1">
+            <h2 class="navbar-brand ml-0 mr-5 d-flex align-items">Edit Show {{this_show.id}}</h2>
+            <p><a href="/shows">Go Back</a></p>
+        </div>
+    </div>
+    <div class="container col-6">
+        <div class="mb-3">
+            <form action="/shows/{{this_show.id}}/update" method="post">
+                {% csrf_token %}
+            {% if messages %}
+                {% for message in messages %}
+                {% if "title" in message.tags %}
+                    <p class="text-danger mb-0">{{message}}</p>
+                {% endif %}
+                {% endfor %}
+            {% endif %}  
+                <label for="title">Title</label>
+                <input class="form-control mb-3" type="text" name="showtitle" value="{{this_show.title}}">
+            {% if messages %}
+                {% for message in messages %}
+                {% if "network" in message.tags %}
+                    <p class="text-danger mb-0">{{message}}</p>
+                {% endif %}
+                {% endfor %}
+            {% endif %}
+                <label for="network">Network</label>
+                <input class="form-control mb-3" type="text" name="shownetwork" value="{{this_show.network}}">
+            {% if messages %}
+                {% for message in messages %}
+                {% if "date" in message.tags %}
+                    <p class="text-danger mb-0">{{message}}</p>
+                {% endif %}
+                {% endfor %}
+            {% endif %}
+            <label for="release">Release Date</label>
+                <input class="form-control mb-3" type="date" name="rel_date" value="{{this_show.release_date|date:'Y-m-d'}}">
+            {% if messages %}
+                {% for message in messages %}
+                {% if "desc" in message.tags %}
+                    <p class="text-danger mb-0">{{message}}</p>
+                {% endif %}
+                {% endfor %}
+            {% endif %}
+            <label for="desc">Description</label>
+                <textarea class="form-control mb-3" rows="3" name="desc">{{this_show.description}}</textarea>
+                <input class="btn btn-primary btn-lg" type="submit" value="Update"> 
+            </form>
+        </div>
+        <hr>
+        <a href="/shows/{{this_show.id}}">Go to Show</a>
+    </div>
+</body>
+</html>

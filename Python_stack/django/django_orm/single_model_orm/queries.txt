@@ -1,0 +1,28 @@
+user1 = users_app.objects.create(first_name="Alex", last_name="Baddu", email_address="albaddu@gmail.com", age=22)
+
+users.objects.create(first_name="Paul", last_name="Cleveland", email_address="paulcleve@gmail.com", age=20)
+
+users.objects.create(first_name="John", last_name="Blake", email_address="jblake@gmail.com", age=30)
+
+all_users = users.objects.all()
+print(all_users)
+
+    <QuerySet [ id: 1 first_name: Alex last_name: Baddu email: albaddu@gmail.com age: (22),  id: 2 first_name: Paul last_name: Cleveland email: paulcleve@gmail.com age: (20),  id: 3 first_name: John last_name: Blake email: jblake@gmail.com age: (30)]>
+
+users.objects.last()
+     id: 3 first_name: John last_name: Blake email: jblake@gmail.com age: (30)
+
+users.objects.first()
+    id: 1 first_name: Alex last_name: Baddu email: albaddu@gmail.com age: (22)
+
+to_update = users.objects.get(id=3)
+    to_update.last_name = "pancakes"
+    to_update.save()
+
+to_delete = users.objects.get(id=2)
+    to_delete.delete()
+
+all_users = users.objects.all().order_by("-first_name")
+print(all_users)
+<QuerySet [ id: 3 first_name: John last_name: pancakes email: jblake@gmail.com age: (30),  id: 1 first_name: Alex last_name: Baddu email: albaddu@gmail.com age: (22)]
+

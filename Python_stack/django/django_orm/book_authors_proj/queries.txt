@@ -1,0 +1,56 @@
+Book.objects.create(title = "C Sharp", desc= "learn c-sharp in 3days")
+
+Author.objects.create(first_name = "Jane", last_name = "Austen")
+ id: 1, first_name: Jane, last_name: Austen
+Author.objects.create(first_name = "Emily", last_name = "Dickinson")
+ id: 2, first_name: Emily, last_name: Dickinson
+Author.objects.create(first_name = "Fyodor", last_name = "Dostoevksy")
+ id: 3, first_name: Fyodor, last_name: Dostoevksy
+Author.objects.create(first_name = "William", last_name = "Shakespeare")
+ id: 4, first_name: William, last_name: Shakespeare
+Author.objects.create(first_name = "Lau", last_name = "Tzu")
+ id: 5, first_name: Lau, last_name: Tzu
+
+update_book = Book.objects.get(title = "C Sharp")
+    update_book.title = "C#"
+    update_book.save()
+
+book1 = Book.objects.get(id=1)
+    book2 = Book.objects.get(id=2)
+    this_author = Author.objects.get(id=1)
+    this_author.books.add(book1, book2)
+
+book1 = Book.objects.get(id=1)
+    book2 = Book.objects.get(id=2)
+    book3 = Book.objects.get(id=3)
+    this_author = Author.objects.get(id=2)
+    this_author.books.add(book1, book2, book3)
+
+author3 = Author.objects.get(id=3)
+    book4 = Book.objects.get(id=4)
+    author3.books.add(book1, book2, book3, book4)
+    author3.books.all()
+
+author4 = Author.objects.get(id=4)
+    book4 = Book.objects.get(id=4)
+    book3 = Book.objects.get(id=3)
+    book1 = Book.objects.get(id=1)
+    book2 = Book.objects.get(id=2)
+    book5 = Book.objects.get(id=5)
+    author4.books.add(book1, book2, book3, book4, book5)
+
+author3 = Author.objects.get(id=3)
+    author3.books.all()
+    <QuerySet [ id: 1, title: C#, desc: learn c-sharp in 3 days,  id: 2, title: Java, desc: the best script languauge,  id: 3, title: Python, desc: get familiar with django and flask,  id: 4,title: PHP, desc: 10interesting things about PHP]>
+
+author1 = Author.objects.get(id=1)
+    book3 = Book.objects.get(id=3)
+    book3.authors.remove(author1)
+
+book2 = Book.objects.get(id=2)
+    author5 = Author.objects.get(id=5)
+    book2.authors.add(author5)
+
+author5 = Author.objects.get(id=5)
+    author5.books.all()
+    <QuerySet [ id: 2, title: Java, desc: the best script languauge]>
