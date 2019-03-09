@@ -27,8 +27,7 @@ def create_show(request):
     if request.method == "POST":
         found = False
         show_to_add = Show.objects.filter(title = request.POST['showtitle'])
-        if show_to_add:
-            
+        if show_to_add:          
             found = True
         return render(request, "tv_shows/partials/shows.html", {"found" : found})
 

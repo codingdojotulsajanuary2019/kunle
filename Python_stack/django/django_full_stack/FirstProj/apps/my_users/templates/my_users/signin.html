@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <div class="jumbotron container col-4 border align-top form-hover">
+        <h2 class="mb-5">Login</h2>
+        {% if messages %}
+            {% for message in messages %}
+            {% if "info" in message.tags %}
+                <p class="text-danger mb-0 text-center">{{message}}</p>
+            {% endif %}
+            {% endfor %}
+        {% endif %} 
+        <form action="/login" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="Email1">Email</label>
+            {% if messages %}
+                {% for message in messages %}
+                {% if "mail" in message.tags %}
+                <p class="text-danger m-0">{{message}}</p>
+                {% endif %}
+                {% endfor %}
+            {% endif %}
+                <input type="text" class="form-control" id="Email1" name="user_email">
+            </div>
+            <div class="form-group">
+                <label for="tPassword1">Password</label>
+            {% if messages %}
+                {% for message in messages %}
+                {% if "pw_word" in message.tags %}
+                <p class="text-danger m-0">{{message}}</p>
+                {% endif %}
+                {% endfor %}
+            {% endif %}
+                <input type="password" class="form-control" id="tPassword1" name="user_password">
+            </div>
+            <button type="submit" class="btn btn-primary col-12 mb-5">Log In</button>
+        </form>
+        <p><span class="font-weight-bold">New User?</span> Click here to <a href="/signup">register</a></p> 
+    </div> 
+</body>
+</html>

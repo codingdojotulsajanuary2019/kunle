@@ -1,0 +1,11 @@
+C:\Users\olaku\OneDrive\Documents\CODING_DOJO\CSharp\FirstAss\bin\Debug\netcoreapp2.1\FirstAss.deps.json
+C:\Users\olaku\OneDrive\Documents\CODING_DOJO\CSharp\FirstAss\bin\Debug\netcoreapp2.1\FirstAss.runtimeconfig.json
+C:\Users\olaku\OneDrive\Documents\CODING_DOJO\CSharp\FirstAss\bin\Debug\netcoreapp2.1\FirstAss.runtimeconfig.dev.json
+C:\Users\olaku\OneDrive\Documents\CODING_DOJO\CSharp\FirstAss\bin\Debug\netcoreapp2.1\FirstAss.dll
+C:\Users\olaku\OneDrive\Documents\CODING_DOJO\CSharp\FirstAss\bin\Debug\netcoreapp2.1\FirstAss.pdb
+C:\Users\olaku\OneDrive\Documents\CODING_DOJO\CSharp\FirstAss\obj\Debug\netcoreapp2.1\FirstAss.csprojAssemblyReference.cache
+C:\Users\olaku\OneDrive\Documents\CODING_DOJO\CSharp\FirstAss\obj\Debug\netcoreapp2.1\FirstAss.csproj.CoreCompileInputs.cache
+C:\Users\olaku\OneDrive\Documents\CODING_DOJO\CSharp\FirstAss\obj\Debug\netcoreapp2.1\FirstAss.AssemblyInfoInputs.cache
+C:\Users\olaku\OneDrive\Documents\CODING_DOJO\CSharp\FirstAss\obj\Debug\netcoreapp2.1\FirstAss.AssemblyInfo.cs
+C:\Users\olaku\OneDrive\Documents\CODING_DOJO\CSharp\FirstAss\obj\Debug\netcoreapp2.1\FirstAss.dll
+C:\Users\olaku\OneDrive\Documents\CODING_DOJO\CSharp\FirstAss\obj\Debug\netcoreapp2.1\FirstAss.pdb

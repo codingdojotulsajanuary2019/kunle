@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    {% load static %}
+    <script src="{% static 'the_store/products.js' %}"></script>
+    <script src="{% static 'the_store/category.js' %}"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container col-8 d-inline-block">
+        <h3>Add a New Product</h3>
+        <a href="#" id="add_cat">Add new Category</a>
+        <div id="part_msg"></div>
+        <form action="/products/new" method="post" id="new_product">
+            {% csrf_token %}
+            <div class="form-group row">
+                <label for="name" class="col-sm-2 col-form-label">Name</label>
+                <div id="part_msg"></div>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="name">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="desc" class="col-sm-2 col-form-label">Description</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control form-control-lg" name="desc">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="cate." class="col-sm-2 col-form-label">Categories</label>
+                <div class="col-sm-10">
+                    <select name="category" class="form-control">
+                        <option value="">Choose product category</option>
+                        {% for category in all_category %}
+                        <option value="{{category.name}}">{{category.name}}</option>
+                        {% endfor %}
+                    </select>         
+                </div>
+            </div>
+            <div id="addcat" class="form-group row">
+                <label for="addcat" class="col-sm-2 col-form-label">add new category</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="new_cat" id="new_cat">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="price" class="col-sm-2 col-form-label">Price</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="price">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="qty" class="col-sm-2 col-form-label">Quantity</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" name="qty">
+                </div>
+            </div>
+            <a class="cancel" href="/products">Cancel</a>
+            <button type="submit">Update</button>
+        </form>
+    </div>
+</body>
+</html>

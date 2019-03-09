@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container-fluid navbar navbar-expand-lg navbar-dark bg-dark box-shadow">
+        <div class="container d-flex justify-content-between col-12 mr-0 ml-1">
+            <h2>Dashboard</h2>
+            <a href="/dashboard">Orders</a>
+            <a href="/products">Products</a>
+            <div>
+                <a href="/logout">Log off</a>
+            </div>
+        </div>
+    </div>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Order ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Date</th>
+                <th scope="col">Billing Address</th>
+                <th scope="col">Total</th>
+                <th scope="col">Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for order in all_orders %}
+            <tr>
+                <td>{{order.id}}</td>
+                <td>{{order.user.first_name}}</td>
+                <td>{{order.created_at}}</td>
+                <td>{{order.user.ship_address}} {{order.user.ship_city}} {{order.user.ship_astate}} {{order.user.ship_zipcode}}</td>
+                <td>{{order.total_price}}</td>
+                <td>{{order.status}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

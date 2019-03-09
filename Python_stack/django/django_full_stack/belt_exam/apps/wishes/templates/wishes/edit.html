@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <div class="navbar navbar-dark bg-dark box-shadow mb-5">
+        <div class="container d-flex justify-content-between">
+            <h1 class="navbar-brand jumbotron-heading d-flex align-items-center">Hello {{request.session.user_name}}</h1>
+            <p>Let's edit your wish!</p>
+        </div>
+        <a class="navbar-brand text-primary" href="/logout">Log Out</a>
+    </div>
+    <div class="container col-6">
+        <div class="mb-3">
+            <form action="/wishes/update/{{this_wish.id}}" method="post">
+                {% csrf_token %}
+
+            {% if messages %}
+                {% for message in messages %}
+                {% if "user_wish" in message.tags %}
+                    <p class="text-danger mb-0">{{message}}</p>
+                {% endif %}
+                {% endfor %}
+            {% endif %}  
+                <label for="title">I wish for:</label>
+                <input class="form-control mb-3" type="text" name="users_wish" value="{{this_wish.item}}">
+
+            {% if messages %}
+                {% for message in messages %}
+                {% if "desc" in message.tags %}
+                    <p class="text-danger mb-0">{{message}}</p>
+                {% endif %}
+                {% endfor %}
+            {% endif %} 
+                <label for="descr">Description</label>
+                <input class="form-control mb-3" type="text" name="desc" value="{{this_wish.description}}">
+
+                <button type="submit" class="btn btn-primary offset-2">Edit</button>
+                <a class="btn btn-danger offset-5" href="/wishes/cancel" >Cancel</a>
+            </form>
+</body>
+</html>

@@ -1,0 +1,11 @@
+C:\Users\olaku\OneDrive\Documents\CODING_DOJO\CSharp\collection\bin\Debug\netcoreapp2.1\collection.deps.json
+C:\Users\olaku\OneDrive\Documents\CODING_DOJO\CSharp\collection\bin\Debug\netcoreapp2.1\collection.runtimeconfig.json
+C:\Users\olaku\OneDrive\Documents\CODING_DOJO\CSharp\collection\bin\Debug\netcoreapp2.1\collection.runtimeconfig.dev.json
+C:\Users\olaku\OneDrive\Documents\CODING_DOJO\CSharp\collection\bin\Debug\netcoreapp2.1\collection.dll
+C:\Users\olaku\OneDrive\Documents\CODING_DOJO\CSharp\collection\bin\Debug\netcoreapp2.1\collection.pdb
+C:\Users\olaku\OneDrive\Documents\CODING_DOJO\CSharp\collection\obj\Debug\netcoreapp2.1\collection.csprojAssemblyReference.cache
+C:\Users\olaku\OneDrive\Documents\CODING_DOJO\CSharp\collection\obj\Debug\netcoreapp2.1\collection.csproj.CoreCompileInputs.cache
+C:\Users\olaku\OneDrive\Documents\CODING_DOJO\CSharp\collection\obj\Debug\netcoreapp2.1\collection.AssemblyInfoInputs.cache
+C:\Users\olaku\OneDrive\Documents\CODING_DOJO\CSharp\collection\obj\Debug\netcoreapp2.1\collection.AssemblyInfo.cs
+C:\Users\olaku\OneDrive\Documents\CODING_DOJO\CSharp\collection\obj\Debug\netcoreapp2.1\collection.dll
+C:\Users\olaku\OneDrive\Documents\CODING_DOJO\CSharp\collection\obj\Debug\netcoreapp2.1\collection.pdb

@@ -1,0 +1,11 @@
+C:\Users\olaku\OneDrive\Documents\CODING_DOJO\CSharp\Phone\bin\Debug\netcoreapp2.1\Phone.deps.json
+C:\Users\olaku\OneDrive\Documents\CODING_DOJO\CSharp\Phone\bin\Debug\netcoreapp2.1\Phone.runtimeconfig.json
+C:\Users\olaku\OneDrive\Documents\CODING_DOJO\CSharp\Phone\bin\Debug\netcoreapp2.1\Phone.runtimeconfig.dev.json
+C:\Users\olaku\OneDrive\Documents\CODING_DOJO\CSharp\Phone\bin\Debug\netcoreapp2.1\Phone.dll
+C:\Users\olaku\OneDrive\Documents\CODING_DOJO\CSharp\Phone\bin\Debug\netcoreapp2.1\Phone.pdb
+C:\Users\olaku\OneDrive\Documents\CODING_DOJO\CSharp\Phone\obj\Debug\netcoreapp2.1\Phone.csprojAssemblyReference.cache
+C:\Users\olaku\OneDrive\Documents\CODING_DOJO\CSharp\Phone\obj\Debug\netcoreapp2.1\Phone.csproj.CoreCompileInputs.cache
+C:\Users\olaku\OneDrive\Documents\CODING_DOJO\CSharp\Phone\obj\Debug\netcoreapp2.1\Phone.AssemblyInfoInputs.cache
+C:\Users\olaku\OneDrive\Documents\CODING_DOJO\CSharp\Phone\obj\Debug\netcoreapp2.1\Phone.AssemblyInfo.cs
+C:\Users\olaku\OneDrive\Documents\CODING_DOJO\CSharp\Phone\obj\Debug\netcoreapp2.1\Phone.dll
+C:\Users\olaku\OneDrive\Documents\CODING_DOJO\CSharp\Phone\obj\Debug\netcoreapp2.1\Phone.pdb
