@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace SLL_List
 {
@@ -70,6 +71,56 @@ namespace SLL_List
             {
                 Console.WriteLine("List is empty");
             }
+        }
+
+        public SllNode Find(int num)
+        {
+            SllNode runner = Head;
+
+            while(runner != null)
+            {
+                if(runner.Value == num)
+                {
+                    Console.WriteLine($"Found a Node with Value of {runner.Value}");
+                    return runner;
+                }
+                runner = runner.Next;
+            }
+            if(runner == null)
+            {
+                Console.WriteLine($"No Node with Value of {num}");
+                return runner;                  
+            }                 
+
+            return runner;         
+        }
+
+        public void RemoveAt(int num)
+        {
+            SllNode runner = Head;
+
+            if(num == 0)
+            {
+                Head = runner.Next;
+                Console.WriteLine(Head.Value);
+            }
+            
+            while(runner != null)
+            {
+                num -= 1;
+                if(num == 0)
+                {
+                    runner.Next = runner.Next.Next;
+                    Console.WriteLine(runner.Value);
+                    Console.WriteLine(runner.Next.Value);
+                    break;
+                }
+                else
+                {
+                    runner = runner.Next;
+                }
+            }
+
         }
     }
 }

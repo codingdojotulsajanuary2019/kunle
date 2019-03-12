@@ -21,3 +21,5 @@ C:\Users\olaku\OneDrive\Documents\CODING_DOJO\CSharp\ASP_MVC\Portfolio\obj\Debug
 C:\Users\olaku\OneDrive\Documents\CODING_DOJO\CSharp\ASP_MVC\Portfolio\obj\Debug\netcoreapp2.1\Portfolio.RazorTargetAssemblyInfo.cs
 C:\Users\olaku\OneDrive\Documents\CODING_DOJO\CSharp\ASP_MVC\Portfolio\obj\Debug\netcoreapp2.1\Portfolio.Views.pdb
 C:\Users\olaku\OneDrive\Documents\CODING_DOJO\CSharp\ASP_MVC\Portfolio\obj\Debug\netcoreapp2.1\Portfolio.csproj.CopyComplete
+C:\Users\olaku\OneDrive\Documents\CODING_DOJO\CSharp\ASP_MVC\Portfolio\obj\Debug\netcoreapp2.1\Razor\Views\Basic\Contacts.g.cshtml.cs
+C:\Users\olaku\OneDrive\Documents\CODING_DOJO\CSharp\ASP_MVC\Portfolio\obj\Debug\netcoreapp2.1\Razor\Views\Basic\Projects.g.cshtml.cs

@@ -1,0 +1,69 @@
+﻿@model Dojodachi.Models.MyModel
+<div class="container col-8 bg-light mt-3 p-0">
+    <div class="navbar navbar-expand-lg col-12 m-0 text-white bg-dark">
+        <ul class="nav">
+            <li class="mr-5">Fullness @Model.Fullness</li>
+            <li class="mr-5">Happiness @Model.Happiness</li>
+            <li class="mr-5">Meals @Model.Meal</li>
+            <li class="mr-5">Energy @Model.Energy</li>
+        </ul>
+    </div>
+    <div class="container col-12 d-center p-2">
+        <img src="~/images/dachii.jpg" height="250" width="240" alt="dachi" class="offset-3 mb-4 mt-2">
+        @{
+            string restart = "";
+            if(@Model.Happiness==100 && @Model.Fullness == 100 && @Model.Energy == 100)
+            {
+                restart = "Congratulations! You won";
+                <h3>@restart</h3>
+            }
+            if(@Model.Happiness==0 || @Model.Fullness == 0 )
+            {
+                restart = "Your Dojodachi has passed away";
+                <h3>@restart</h3>
+            }
+            if(restart == "")
+            {
+                if(@Model.Action == "start")
+                {
+                    <h3>Start Game</h3>
+                }
+                if(@Model.Action == "sleep")
+                {
+                    <h3>Dojodachi is sleep</h3>
+                }
+                if(@Model.Action == "dislike")
+                {
+                    <h3>Dojodachi does not like that</h3>
+                }
+                if(@Model.Action == "played")
+                {
+                    <h3>You played with your Dojodachi</h3>
+                }
+                if(@Model.Action == "fed" || @Model.Action == "worked")
+                {
+                    <h3>You @Model.Action your Dojodachi</h3>
+                }
+                if(@Model.Action == "meal to eat" || @Model.Action == "energy")
+                {
+                    <h3>Your Dojodachi has no @Model.Action</h3>
+                }
+            }
+        }
+    </div>
+    <div class="d-flex justify-content-center bg-secondary">
+        @{
+            if( (@Model.Happiness==0 || @Model.Fullness == 0 || @Model.Happiness==100) || (@Model.Fullness == 100 && @Model.Energy == 100 )) 
+            {
+                <a href="dojodachi/reset" class="btn btn-primary m-3">Restart?</a>
+            }
+            else
+            {
+                <a href="dojodachi/feed" class="btn btn-primary m-3">Feed</a>
+                <a href="dojodachi/play" class="btn btn-primary m-3">Play</a>
+                <a href="dojodachi/work" class="btn btn-primary m-3">Work</a>
+                <a href="dojodachi/sleep" class="btn btn-primary m-3">Sleep</a>
+            }
+        }
+    </div>
+</div>

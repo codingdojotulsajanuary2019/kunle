@@ -1,4 +1,8 @@
+using System;
+using Dojo_Survey.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel.DataAnnotations;
+
 namespace Dojo_Survey
 {
     public class HomeController : Controller
@@ -9,14 +13,17 @@ namespace Dojo_Survey
             return View();
         }
 
-        [HttpPost("result")]
-        public IActionResult Result(string name, string dojo, string language, string comment)
+        [HttpPost("survey")]
+        public IActionResult Result(Survey result)
         {
-            ViewBag.Name = name;
-            ViewBag.Location = dojo;
-            ViewBag.Language = language;
-            ViewBag.Comment = comment;
-            return View();
+            if(ModelState.IsValid)
+            {
+                return View(result);
+            }
+            else
+            {
+                return View("Index", result);
+            }           
         }
     }
 }

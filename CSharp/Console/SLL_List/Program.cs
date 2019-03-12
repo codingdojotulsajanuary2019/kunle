@@ -17,6 +17,9 @@ namespace SLL_List
 
             Console.WriteLine(first.Remove());
             first.PrintValues();
+
+            first.Find(11);
+            first.RemoveAt(2);
         }
     }
 }

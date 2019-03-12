@@ -687,11 +687,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\olaku\\OneDrive\\Documents\\CODING_DOJO\\CSharp\\SLL_List\\SLL_List.csproj",
+      "projectUniqueName": "c:\\Users\\olaku\\OneDrive\\Documents\\CODING_DOJO\\CSharp\\Console\\SLL_List\\SLL_List.csproj",
       "projectName": "SLL_List",
-      "projectPath": "C:\\Users\\olaku\\OneDrive\\Documents\\CODING_DOJO\\CSharp\\SLL_List\\SLL_List.csproj",
+      "projectPath": "c:\\Users\\olaku\\OneDrive\\Documents\\CODING_DOJO\\CSharp\\Console\\SLL_List\\SLL_List.csproj",
       "packagesPath": "C:\\Users\\olaku\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\olaku\\OneDrive\\Documents\\CODING_DOJO\\CSharp\\SLL_List\\obj\\",
+      "outputPath": "c:\\Users\\olaku\\OneDrive\\Documents\\CODING_DOJO\\CSharp\\Console\\SLL_List\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

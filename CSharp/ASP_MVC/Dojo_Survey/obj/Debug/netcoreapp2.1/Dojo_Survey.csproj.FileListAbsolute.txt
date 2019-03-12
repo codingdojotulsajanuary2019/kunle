@@ -22,3 +22,4 @@ C:\Users\olaku\OneDrive\Documents\CODING_DOJO\CSharp\ASP_MVC\Dojo_Survey\obj\Deb
 C:\Users\olaku\OneDrive\Documents\CODING_DOJO\CSharp\ASP_MVC\Dojo_Survey\obj\Debug\netcoreapp2.1\Dojo_Survey.dll
 C:\Users\olaku\OneDrive\Documents\CODING_DOJO\CSharp\ASP_MVC\Dojo_Survey\obj\Debug\netcoreapp2.1\Dojo_Survey.pdb
 C:\Users\olaku\OneDrive\Documents\CODING_DOJO\CSharp\ASP_MVC\Dojo_Survey\obj\Debug\netcoreapp2.1\Dojo_Survey.csproj.CopyComplete
+C:\Users\olaku\OneDrive\Documents\CODING_DOJO\CSharp\ASP_MVC\Dojo_Survey\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_ViewImports.g.cshtml.cs
