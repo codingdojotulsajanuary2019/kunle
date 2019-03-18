@@ -1,0 +1,20 @@
+﻿@model Crudelicious.Models.AllDish
+
+<div class="navbar navbar-expand-lg bg-dark text-white justify-content-between">
+    <h2>Welcome to CRUDelicious</h2>
+    <a href="/addDish">Add a Dish</a>
+</div>
+<div class="col-12 bg-secondary pb-3"> 
+    <h3 class="display-4 mt-4 mb-5">Check out some recent dishes!</h3>
+
+    @{
+        foreach(var dish in @Model.allDishes)
+        {
+            <div class="mt-2 bg-light p-2">
+                <h4><a href="/dish/@dish.DishId">@dish.Name</a></h4>
+                <p class="font-italic ml-5 mt-0 mb-0">by @dish.Chef</p>
+            </div>
+        }
+    }
+
+</div>

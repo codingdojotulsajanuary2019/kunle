@@ -1,0 +1,35 @@
+﻿@model ChefnDishes.Models.AllModels
+
+<div class="bg-secondary pb-4">
+    <div class="navbar navbar-expand-lg bg-dark text-white justify-content-between">
+        <a>Chefs</a>
+        <a href="/dishes">Dishes</a>    
+        <a href="/chef/new" class="offset-9">Add a Chef</a>
+    </div>
+    <h4 class="display-4 m-3">Check out our roster of amazing Chefs!</h4>
+    <div class="bg-light mr-3 ml-3">
+        <table class="table table-striped">
+            <thead scope="col">
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">No. of Dishes</th>
+                </tr>
+            </thead>
+            <tbody>
+            @{
+                foreach(var chef in @Model.allChefs)
+                {
+                    int age = @DateTime.Now.Year - @chef.BirthDate.Year;
+                    <tr>
+                        <td>@chef.FirstName @chef.LastName</td>
+                        <td>@age</td>
+                        <td>@chef.ChefRecipes.Count()</td>
+                    </tr>
+                }
+            }
+            </tbody>
+        </table>
+    </div>
+</div>
+    

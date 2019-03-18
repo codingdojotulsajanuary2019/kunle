@@ -1,0 +1,49 @@
+@model ViewModel
+
+<div class="bg-secondary pb-5">
+    <div class="navbar navbar-expand-lg bg-dark text-white justify-content-between">
+        <h3 class="display-4">Welcome @Model.thisUser.FirstName</h3>
+        <div>
+            @{
+                decimal Sum = 0;
+                foreach(Transaction usertrans in Model.thisUser.UserTransactions)
+                {
+                    Sum += usertrans.Amount;
+                }
+            }
+            <a href="/logout">Logout</a>  
+            <h3>Current Balance $@Sum</h3>
+        </div>   
+    </div>
+
+    <div class="form-inline">
+        <form asp-action="Transaction" asp-controller="Home" method="post">
+            <div class="form-group">
+                <label asp-for="Trans.Amount" class="font-weight-bold sr-only"></label>
+                <input asp-for="Trans.Amount" class="form-control bg-light">
+                <button type="submit" class="btn btn-primary col-3">Add Chef</button>
+            </div>
+        </form>
+    </div>
+    <div class="bg-light mr-3 ml-3">
+        <table class="table table-striped">
+            <thead scope="col">
+                <tr>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    foreach(Transaction trans in Model.thisUser.UserTransactions)
+                    {
+                        <tr>
+                            <td>@trans.Amount</td>
+                            <td>@trans.CreatedAt</td>
+                        </tr>
+                    }
+                }          
+            </tbody>
+        </table>
+    </div>
+</div>
