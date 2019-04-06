@@ -1,0 +1,43 @@
+@model Dish
+<div class="bg-secondary pb-4">
+    <div class="navbar navbar-expand-lg bg-dark text-white justify-content-between mb-4">
+        <h2>Add a new Dish!</h2>
+        <a href="/">Home</a>
+    </div>
+    <div class="container col-6 bg-white pt-2">
+        <form asp-action="Create" asp-controller="Home" method="post">
+            <div class="form-group">
+                <label asp-for="Chef" class="font-weight-bold mb-0"></label>
+                <span asp-validation-for="Chef" class="form-text text-danger"></span>
+                <input asp-for="Chef" class="form-control bg-light">
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Name" class="font-weight-bold mb-0"></label>
+                <span asp-validation-for="Name" class="form-text text-danger"></span>
+                <input asp-for="Name" class="form-control bg-light">
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Calories" class="font-weight-bold mb-0"></label>
+                <span asp-validation-for="Calories" class="form-text text-danger"></span>
+                <input asp-for="Calories" class="form-control bg-light">
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Tastiness" class="font-weight-bold mb-0"></label>
+                <span asp-validation-for="Tastiness" class="form-text text-danger"></span>
+                <input asp-for="Tastiness" class="form-control bg-light">
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Description" class="font-weight-bold mb-0"></label>
+                <span asp-validation-for="Description" class="form-text text-danger"></span>
+                <textarea asp-for="Description" row="3" class="form-control bg-light"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary mb-3 offset-10">Add Dish</button>
+
+        </form>
+    </div>
+</div>

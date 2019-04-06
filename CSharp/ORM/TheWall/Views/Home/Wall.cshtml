@@ -1,0 +1,68 @@
+@model AllMessages
+
+<div class="bg-secondary pb-4 d-inline-block col-12">
+    <div class="navbar navbar-expand-lg bg-dark text-white justify-content-between">
+        <h3 class="display-4">GentleMen Wall</h3>
+        <div>
+            <h4>Welcome @ViewBag.Name</h4>
+            <a href="/logout" class="offset-7">Log Out</a>
+        </div>
+    </div>
+
+    <div class="container col-12 bg-light p-3 rounded">
+        <div class="mb-5">
+            <form asp-action="createPost" asp-controller="Home" method="post">
+                <div class="form-group mb-2">
+                    <label asp-for="newMessage.Post" class="font-weight-bold mb-0"></label>
+                    <textarea asp-for="newMessage.Post" rows="3" class="form-control bg-light"></textarea>
+                </div>
+                <input asp-for="newMessage.UserId" value="@ViewBag.User" type="hidden">
+                <button type="submit" class="btn btn-primary mt-0 offset-10">Post a message</button>
+            </form>
+        </div>
+
+        <div class="container col-12 bg-light pt-2 pb-3">
+            @{
+                foreach(var msg in Model.allMessages)
+                {
+                    <div class="container border-bottom mb-4">
+                        <h5 >@msg.Poster.FirstName @msg.Poster.LastName - @msg.CreatedAt.ToString("MMMM dd yyyy") <span class="font-italic font-weight-light">wrote</span></h5>
+                        <h6 class="ml-3 container border p-3">@msg.Post</h6>
+
+                        @{
+                            foreach(Comment comm in msg.Comments)
+                            {
+                                <div class="container ml-3">
+                                    <p class="font-italic text-primary mb-0">@comm.User.FirstName @comm.User.LastName - @comm.CreatedAt.ToString("MMM dd yyyy") <span class="text-dark font-weight-light">left a comment</span></p>
+                                    <p class="ml-3 mt-0">@comm.Reply</p>
+                                </div>
+                            }
+                        }  
+                        <div class="ml-3">                            
+                            <form asp-action="writeComment" asp-controller="Home" method="post">
+                                <div class="form-group mb-2">
+                                    <label asp-for="newComment.Reply" class="font-weight-bold mb-0"></label>
+                                    <textarea asp-for="newComment.Reply" rows="2" class="form-control bg-light"></textarea>
+                                </div>
+                                <input asp-for="newComment.UserId" value="@ViewBag.User" type="hidden">
+                                <input asp-for="newComment.MessageId" value="@msg.MessageId" type="hidden">
+                                <div class="mb-4 ml-4">                    
+                                    @{
+                                        if(msg.Poster.UserId == @ViewBag.User)
+                                        {
+                                            if(DateTime.Now.Minute - msg.CreatedAt.Minute < 30)
+                                            {
+                                                <a href="/destroy/@msg.MessageId" class="d-inline-block align-top">Delete</a>
+                                            }
+                                        }
+                                    }  
+                                    <button type="submit" class="btn btn-success offset-9 d-inline-block">Post a comment</button>
+                                </div> 
+                            </form>
+                        </div>  
+                    </div>            
+                }
+            }
+        </div>
+    </div>
+</div>

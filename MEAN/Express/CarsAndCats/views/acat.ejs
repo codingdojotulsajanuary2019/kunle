@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body class="bg-secondary pt-2">
+    <div class="container col-6 bg-light mt-5 pb-2">
+        <h1 class="display-4">Details Page for <%= ACat.name %></h1>
+        <img src="/images/<%=ACat.name%>-cat.jpg" class="rounded mx-auto d-block m-5" alt="Catnip" height="200" width="320">
+        <p class="bg-secondary p-2 font-weight-bold text-warning">Age: <%= ACat.age %></p>
+        <p class="bg-secondary p-2 font-weight-bold text-warning">Eye Color: <%= ACat.eye_color %></p>
+        <p class="bg-secondary p-2 font-weight-bold text-warning mb-0">Favorite food: 
+        <% for(var x in ACat.favorite_food){ %>
+            <li class="bg-secondary pl-3 pb-1 font-weight-bold text-warning"><%= ACat.favorite_food[x] %> </li>
+        <% } %>
+        </p>
+    </div>
+    
+</body>
+</html>

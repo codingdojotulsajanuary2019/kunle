@@ -1,0 +1,56 @@
+@model AllWedding
+
+<div class="bg-secondary pb-4 d-inline-block col-12">
+    <div class="navbar navbar-expand-lg bg-dark text-white justify-content-between">
+        <h3 class="display-4">Welcome to the Wedding Planner</h3>
+        <a href="/logout">Log Out</a>
+    </div>
+    <div class="m-4">
+        <table class="table table-hover bg-light">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">Wedding</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Guest</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    foreach(var party in Model.allWedding)
+                    {
+                        <tr>
+                            <td> <a href="wedding/@party.WeddingId/Info">@party.Husband & @party.Wife</a> </td>
+                            <td>@party.Date.ToString("dddd, MMM dd, yyyy")</td>
+                            <td>@party.Guests.Count()</td>
+                            
+                            @{ if (party.Creator.UserId == @ViewBag.User)
+                                { 
+                                    <td> <a href="/destroy/@party.WeddingId">Delete</a> </td>
+                                }
+                                else          
+                                {
+                                    int valid = 0;
+                                    foreach(var res in party.Guests)
+                                    {
+                                        if(res.UserId == ViewBag.User)
+                                        {
+                                            <td> <a href="/unreserve/@res.ReservationId">Un-RSVP</a> </td>
+                                            valid = 1;                                      
+                                        }
+                                    }
+
+                                    if(valid == 0)
+                                    {
+                                        <td> <a href="/reserve/@party.WeddingId">RSVP</a> </td>
+                                    }             
+                                }
+                            }            
+                        </tr>
+                    }
+                }                
+            </tbody>
+        </table>
+    </div>
+    <a href="/new/Wedding" class="btn btn-lg btn-primary offset-10">New Wedding</a>
+</div>

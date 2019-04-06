@@ -1,0 +1,35 @@
+@model ChefnDishes.Models.AllDish
+
+<div class="bg-secondary pb-4">
+    <div class="navbar navbar-expand-lg bg-dark text-white justify-content-between">
+        <a href="/">Chefs</a>    
+        <a>Dishes</a>
+        <a href="/dish/new" class="offset-9">Add a Dish</a>
+    </div>
+    <h4 class="display-4 m-3">Yummy!! Take a look at our tasty dishes!</h4>
+    <div class="bg-light mr-3 ml-3">
+        <table class="table table-striped">
+            <thead scope="col">
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Chef</th>
+                    <th scope="col">Tastiness</th>
+                    <th scope="col">Calories</th>
+                </tr>
+            </thead>
+            <tbody>
+            @{
+                foreach(var dish in @Model.allDishes)
+                {
+                    <tr>
+                        <td>@dish.Name</td>
+                        <td>@dish.RecipeOwner.FirstName @dish.RecipeOwner.LastName</td>
+                        <td>@dish.Tastiness</td>
+                        <td>@dish.Calories</td>
+                    </tr>
+                }
+            }
+            </tbody>
+        </table>
+    </div>
+</div>

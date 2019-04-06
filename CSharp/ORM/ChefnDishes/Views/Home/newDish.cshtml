@@ -1,0 +1,53 @@
+@model AllModels
+
+<div class="bg-secondary pb-4 rounded">
+    <div class="navbar navbar-expand-lg bg-dark text-white justify-content-between mb-4">
+        <h3 class="display-4">Add a new Dish!</h3>
+        <a href="/">Home</a>
+    </div>
+    <div class="container col-6 bg-light pt-2 mt-4 pb-3 round">
+
+        <form asp-action="createDish" asp-controller="Home" method="post">
+            <div class="form-group">
+                <label asp-for="newDish.Name" class="font-weight-bold mb-0"></label>
+                <span asp-validation-for="newDish.Name" class="form-text text-danger"></span>
+                <input asp-for="newDish.Name" class="form-control bg-light">
+            </div>
+
+            <div class="form-group">
+                <label asp-for="newDish.Calories" class="font-weight-bold mb-0"></label>
+                <span asp-validation-for="newDish.Calories" class="form-text text-danger"></span>
+                <input asp-for="newDish.Calories" class="form-control bg-light">
+            </div>
+
+            <div class="form-group">
+                <label asp-for="newDish.Tastiness" class="font-weight-bold mb-0"></label>
+                <span asp-validation-for="newDish.Tastiness" class="form-text text-danger"></span>
+                <input asp-for="newDish.Tastiness" class="form-control bg-light">
+            </div>
+
+            <div class="form-group">
+                <label asp-for="newDish.ChefId" class="font-weight-bold mb-0"></label>
+                <span asp-validation-for="newDish.ChefId" class="form-text text-danger"></span>
+                <select asp-for="newDish.ChefId">
+                    <option value="" selected disabled>Select a Chef</option>                   
+                    @{
+                        foreach(var chef in Model.allChefs)
+                        {
+                            <option value="@chef.ChefId">@chef.FirstName @chef.LastName</option>
+                        }
+                    }
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="newDish.Description" class="font-weight-bold mb-0"></label>
+                <span asp-validation-for="newDish.Description" class="form-text text-danger"></span>
+                <textarea asp-for="newDish.Description" row="3" class="form-control bg-light"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary mb-3 offset-10">Add Dish</button>
+
+        </form>
+    </div>
+</div>

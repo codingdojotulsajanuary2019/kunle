@@ -1,0 +1,42 @@
+@model Crudelicious.Models.Dish
+
+<div class="navbar navbar-expand-lg bg-dark text-white justify-content-between">
+    <h2>Edit @Model.Name</h2>
+    <a href="/">Home</a>
+</div>
+<div class="container col-6 bg-white pt-2">
+    <form asp-action="Update" asp-controller="Home" method="post">
+        <div class="form-group">
+            <label asp-for="Chef" class="font-weight-bold mb-0"></label>
+            <span asp-validation-for="Chef" class="form-text text-danger"></span>
+            <input asp-for="Chef" value="@Model.Chef" class="form-control bg-light">
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Name" class="font-weight-bold mb-0"></label>
+            <span asp-validation-for="Name" class="form-text text-danger"></span>
+            <input asp-for="Name" value="@Model.Name" class="form-control bg-light">
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Calories" class="font-weight-bold mb-0"></label>
+            <span asp-validation-for="Calories" class="form-text text-danger"></span>
+            <input asp-for="Calories" value="@Model.Calories" class="form-control bg-light">
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Tastiness" class="font-weight-bold mb-0"></label>
+            <span asp-validation-for="Tastiness" class="form-text text-danger"></span>
+            <input asp-for="Tastiness" value="@Model.Tastiness" class="form-control bg-light">
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Description" class="font-weight-bold mb-0"></label>
+            <span asp-validation-for="Description" class="form-text text-danger"></span>
+            <textarea asp-for="Description" row="3" class="form-control bg-light">@Model.Tastiness</textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary mb-3 offset-10">Edit Dish</button>
+
+    </form>
+</div>

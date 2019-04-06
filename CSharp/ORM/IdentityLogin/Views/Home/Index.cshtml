@@ -1,0 +1,67 @@
+﻿@model IndexPageView 
+
+<div class="bg-secondary">
+    <div class="bg-secondary p-4 d-inline-block col-6 mt-2 mr-5">
+        <div class="navbar navbar-expand-lg bg-dark text-white justify-content-between">
+            <h3 class="display-4">Register</h3>
+        </div>
+        
+        <div class="container col-12 bg-light pt-2 mt-4 pb-3">
+            <form asp-action="CreateUser" asp-controller="Home" method="post">
+                <span asp-validation-summary="Empty" class="form-text text-danger"></span>
+                <div class="form-group">
+                    <label asp-for="AUser.Username" class="font-weight-bold mb-0"></label>
+                    <span asp-validation-for="AUser.Username" class="form-text text-danger"></span>
+                    <input asp-for="AUser.Username" class="form-control bg-light">
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="AUser.Email" class="font-weight-bold mb-0"></label>
+                    <span asp-validation-for="AUser.Email" class="form-text text-danger"></span>
+                    <input asp-for="AUser.Email" class="form-control bg-light">
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="AUser.Password" class="font-weight-bold mb-0"></label>
+                    <span asp-validation-for="AUser.Password" class="form-text text-danger"></span>
+                    <input asp-for="AUser.Password" class="form-control bg-light">
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="AUser.Confirm" class="font-weight-bold mb-0"></label>
+                    <span asp-validation-for="AUser.Confirm" class="form-text text-danger"></span>
+                    <input asp-for="AUser.Confirm" class="form-control bg-light">
+                </div>
+                <button type="submit" class="btn btn-primary mb-3 mt-3 offset-10">Register</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="bg-secondary p-4 d-inline-block col-5 align-top mt-2 ml-4">
+        <div class="navbar navbar-expand-lg bg-dark text-white justify-content-between">
+            <h3 class="display-4">Login</h3>
+        </div>
+        <div class="container col-12 bg-light pt-2 mt-4 pb-3">
+            <form asp-action="UserLogin" asp-controller="Home" method="post">
+                <div class="form-group">
+                    <label asp-for="myUser.Username" class="font-weight-bold mb-0"></label>
+                    <span asp-validation-for="myUser.Username" class="form-text text-danger"></span>
+                    <input asp-for="myUser.Username" class="form-control bg-light">
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="myUser.Password" class="font-weight-bold mb-0"></label>
+                    <span asp-validation-for="myUser.Password" class="form-text text-danger"></span>
+                    <input asp-for="myUser.Password" class="form-control bg-light">
+                </div>
+
+                <div class="form-check">
+                    <input asp-for="myUser.RememberMe" class="form-check-input">
+                    <label asp-for="myUser.RememberMe" class="form-check-label"></label>
+                </div>
+                <button type="submit" class="btn btn-primary mb-3 mt-3 offset-10">Sign In</button>
+            </form>
+            <a href="/recoverPassword">Forgot your password</a>
+        </div>
+    </div>
+</div>

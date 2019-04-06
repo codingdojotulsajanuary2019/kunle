@@ -1,0 +1,36 @@
+@model AllContent 
+
+<div class="bg-secondary pb-4">
+    <div class="navbar navbar-expand-lg bg-dark text-white justify-content-between">
+        <h3 class="display-4">@Model.thisProduct.Name</h3>
+        <a href="/categories">Add a new Category</a>
+    </div>
+    <div class="d-inline-block container col-7 m-3">
+        <h3>Categories</h3>
+        <ul>
+            @{
+                foreach (var prod in Model.thisProduct.ProductCategories)
+                {
+                    <li class="text-white">@prod.Category.Name</li>
+                }
+            }
+        </ul>
+    </div>
+    <div class="d-inline-block container col-4 ml-4 align-top mt-3">
+        <h3>Add Category</h3>
+        <span asp-validation-for="Relationship.CategoryId" class="text-danger m-0"></span>
+
+        <form asp-action="linkCategory" asp-controller="Home" method="post">
+            <input asp-for="Relationship.ProductId" type="hidden" value="@Model.thisProduct.ProductId">
+            <select asp-for="Relationship.CategoryId">
+                <option selected disabled>Select product category</option>
+                @{
+                    foreach (Category cat in Model.AllCategory)
+                    {
+                        <option value="@cat.CategoryId">@cat.Name</option>
+                    }
+                }  
+            </select>
+            <button type="submit">Add</button>
+        </form>
+    </div>
