@@ -7,7 +7,7 @@ mongoose.connect('mongodb://localhost/bingo_db');
 var BingoSchema = new mongoose.Schema({
     name: {type: String, required: [true, "Name is required"], minlength: [2, "Name must be atleast 2 character long"]},
     meals: {type: String, required: [true, "Favorite meal is required"], minlength: [2, "Meal must be atleast 2 character long"]},
-    age: {type: [Number, "Age can only be numbers"], required: [true, "Age is required"], minlength: 1},
+    age: {type: [Number, "Age can only be numbers"], min: [1, "Age is required"], max: 100},
 }, {timestamps: true} );
 
 mongoose.model('Bingo', BingoSchema);
@@ -81,18 +81,19 @@ app.get('/bingo/edit/:id', function(req, res) {
     })
 })
 
+var opts = { runValidators: true };
 app.post('/bingo/:id', function(req, res) {
     Bingo.findByIdAndUpdate(req.params.id, { $set: {
         name: req.body.name,
         meals: req.body.meals,
         age: req.body.age
-    }}, function(err, bingo){
+    }}, opts, function(err, bingo){
         if(err){
              for(var key in err.errors) {
                 console.log(err.errors[key].message);
                 req.flash('invalid', err.errors[key].message);
             }
-            res.redirect('/bingo/edit/req.params.id');
+            res.redirect(`/bingo/edit/${req.params.id}`);
         }
         else{
             res.redirect("/");
