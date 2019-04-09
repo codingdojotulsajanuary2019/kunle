@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body class="bg-secondary p-3">
+    <div class="container col-12 p-0">
+        <div class="container col-10 text-white m-3">
+            <h3 class="display-4">The Dojo Message Board</h3>
+        </div>
+        <div class="container col-8 mb-4 rounded bg-light">
+            <% if(messages.invalid) { %>
+                <% for(var x of messages.invalid) { %>
+                    <span class="text-danger"><%=  x %></span><br>
+                <% } %>
+            <% } %>
+
+            <form action="/message/new" method="post" class="p-3">
+                <div class="form-group row">
+                    <label for="name" class="font-weight-bold">Name:</label>
+                    <input type="text" class="form-control" name="name">
+                </div>
+                <div class="form-group row">
+                    <label for="message" class="font-weight-bold">Message:</label>
+                    <input type="text" class="form-control" name="message">
+                </div>
+                <button type="submit" class="btn btn-outline-primary offset-10">Post message</button>
+            </form>
+        </div>
+        <div class="container col-10 p-3 rounded">
+            <% if(allmessages) { %>
+                <% for(var x in allmessages) { %>
+                <div class="container col-10 bg-light p-3 rounded mb-3">
+                    <h5>Name: <%= allmessages[x].name %></h5>
+                    <h5>Message: <%= allmessages[x].message %></h5>
+
+                    <div class="container col-10 p-3">
+                    <% var j = 0 %>
+                    <% while(j < allmessages[x].comments.length ) { %>                       
+                        <p class="m-0"><span class="text-success">Name: </span> <%= allmessages[x].comments[j].name %></p>
+                        <p><span class="text-success">Comment: </span> <%= allmessages[x].comments[j].comment %></p>
+                        <% j++ %>                        
+                    <% } %>
+                     
+                        <form action="/message/<%= allmessages[x]._id %>/comment" method="post">
+                            <% if(messages.errors) { %>
+                                <% for(var x of messages.errors) { %>
+                                    <span class="text-danger"><%=  x %></span><br>
+                                <% } %>
+                            <% } %>
+
+                            <div class="form-group row">
+                                <label for="name">Name:</label>
+                                <input type="text" class="form-control" name="name">
+                            </div>
+                            <div class="form-group row">
+                                <label for="message">Comment:</label>
+                                <input type="text" class="form-control" name="comment">
+                            </div>
+                            <button type="submit" class="btn btn-primary offset-9">Post comment</button>
+                        </form>
+                    </div>
+                </div>
+                <% } %>
+            <% } %>
+        </div>
+    </div>
+</body>
+</html>
