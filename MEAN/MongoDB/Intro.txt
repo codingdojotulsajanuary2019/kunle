@@ -1,0 +1,367 @@
+> show dbs
+Test    0.000GB
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+
+> create my_first_db
+2019-04-08T12:19:13.538-0500 E QUERY    [js] SyntaxError: missing ; before statement @(shell):1:7
+
+> use my_first_db
+switched to db my_first_db
+
+> db
+my_first_db
+
+> db.createCollection("students")
+{ "ok" : 1 }
+
+> db.students.insert({name: "Skylar", home_state: "Tulsa", lucky_no: 6, birthday: {06,18,1995}})
+
+2019-04-08T12:22:19.998-0500 E QUERY    [js] SyntaxError: missing : after property id @(shell):1:83
+
+> db.students.find()
+> db.students.find({})
+
+> db.students.insert({name: "Skylar", home_state: "Tulsa", lucky_no: 6, birthday: {06,18,1995}})
+
+2019-04-08T12:25:12.566-0500 E QUERY    [js] SyntaxError: missing : after property id @(shell):1:83
+
+> db.students.insert({name: "Skylar", home_state: "Tulsa", lucky_no: 6, birthday: {month: 06, day: 18, year: 1995}})
+
+WriteResult({ "nInserted" : 1 })
+> db.students.insert({name: "Cross", home_state: "Pryor", lucky_no: 9, birthday: {month: 04, day: 22, year: 1999}})
+WriteResult({ "nInserted" : 1 })
+
+> db.students.insert({name: "Mike", home_state: "OKC", lucky_no: 7, birthday: {month: 02, day: 12, year: 1990}})
+WriteResult({ "nInserted" : 1 })
+
+> db.students.insert({name: "Kunle", home_state: "Tulsa", lucky_no: 77, birthday: {month: 08, day: 09, year: 1992}})
+WriteResult({ "nInserted" : 1 })
+
+> db.students.insert({name: "Jeremy", home_state: "Austin", lucky_no: 12, birthday: {month: 11, day: 01, year: 1990}})
+WriteResult({ "nInserted" : 1 })
+
+>> db.students.find().pretty()
+{
+        "_id" : ObjectId("5cab8463d00e4ea42e09424b"),
+        "name" : "Skylar",
+        "home_state" : "Tulsa",
+        "lucky_no" : 6,
+        "birthday" : {
+                "month" : 6,
+                "day" : 18,
+                "year" : 1995
+        }
+}
+{
+        "_id" : ObjectId("5cab8495d00e4ea42e09424c"),
+        "name" : "Cross",
+        "home_state" : "Pryor",
+        "lucky_no" : 9,
+        "birthday" : {
+                "month" : 4,
+                "day" : 22,
+                "year" : 1999
+        }
+}
+{
+        "_id" : ObjectId("5cab84c0d00e4ea42e09424d"),
+        "name" : "Mike",
+        "home_state" : "OKC",
+        "lucky_no" : 7,
+        "birthday" : {
+                "month" : 2,
+                "day" : 12,
+                "year" : 1990
+        }
+}
+{
+        "_id" : ObjectId("5cab84f8d00e4ea42e09424e"),
+        "name" : "Kunle",
+        "home_state" : "Tulsa",
+        "lucky_no" : 77,
+        "birthday" : {
+                "month" : 8,
+                "day" : 9,
+                "year" : 1992
+        }
+}
+{
+        "_id" : ObjectId("5cab8523d00e4ea42e09424f"),
+        "name" : "Jeremy",
+        "home_state" : "Austin",
+        "lucky_no" : 12,
+        "birthday" : {
+                "month" : 11,
+                "day" : 1,
+                "year" : 1990
+        }
+}
+
+> db.students.find({home_state: {$in: ["Tulsa", "OKC"]}}).pretty()
+{
+        "_id" : ObjectId("5cab8463d00e4ea42e09424b"),
+        "name" : "Skylar",
+        "home_state" : "Tulsa",
+        "lucky_no" : 6,
+        "birthday" : {
+                "month" : 6,
+                "day" : 18,
+                "year" : 1995
+        }
+}
+{
+        "_id" : ObjectId("5cab84c0d00e4ea42e09424d"),
+        "name" : "Mike",
+        "home_state" : "OKC",
+        "lucky_no" : 7,
+        "birthday" : {
+                "month" : 2,
+                "day" : 12,
+                "year" : 1990
+        }
+}
+{
+        "_id" : ObjectId("5cab84f8d00e4ea42e09424e"),
+        "name" : "Kunle",
+        "home_state" : "Tulsa",
+        "lucky_no" : 77,
+        "birthday" : {
+                "month" : 8,
+                "day" : 9,
+                "year" : 1992
+        }
+}
+
+> db.students.find({lucky_no : {$gt: 3}}).pretty()
+{
+        "_id" : ObjectId("5cab8463d00e4ea42e09424b"),
+        "name" : "Skylar",
+        "home_state" : "Tulsa",
+        "lucky_no" : 6,
+        "birthday" : {
+                "month" : 6,
+                "day" : 18,
+                "year" : 1995
+        }
+}
+{
+        "_id" : ObjectId("5cab8495d00e4ea42e09424c"),
+        "name" : "Cross",
+        "home_state" : "Pryor",
+        "lucky_no" : 9,
+        "birthday" : {
+                "month" : 4,
+                "day" : 22,
+                "year" : 1999
+        }
+}
+{
+        "_id" : ObjectId("5cab84c0d00e4ea42e09424d"),
+        "name" : "Mike",
+        "home_state" : "OKC",
+        "lucky_no" : 7,
+        "birthday" : {
+                "month" : 2,
+                "day" : 12,
+                "year" : 1990
+        }
+}
+{
+        "_id" : ObjectId("5cab84f8d00e4ea42e09424e"),
+        "name" : "Kunle",
+        "home_state" : "Tulsa",
+        "lucky_no" : 77,
+        "birthday" : {
+                "month" : 8,
+                "day" : 9,
+                "year" : 1992
+        }
+}
+{
+        "_id" : ObjectId("5cab8523d00e4ea42e09424f"),
+        "name" : "Jeremy",
+        "home_state" : "Austin",
+        "lucky_no" : 12,
+        "birthday" : {
+                "month" : 11,
+                "day" : 1,
+                "year" : 1990
+        }
+}
+
+> db.students.find({lucky_no : {$lte: 10}}).pretty()
+{
+        "_id" : ObjectId("5cab8463d00e4ea42e09424b"),
+        "name" : "Skylar",
+        "home_state" : "Tulsa",
+        "lucky_no" : 6,
+        "birthday" : {
+                "month" : 6,
+                "day" : 18,
+                "year" : 1995
+        }
+}
+{
+        "_id" : ObjectId("5cab8495d00e4ea42e09424c"),
+        "name" : "Cross",
+        "home_state" : "Pryor",
+        "lucky_no" : 9,
+        "birthday" : {
+                "month" : 4,
+                "day" : 22,
+                "year" : 1999
+        }
+}
+{
+        "_id" : ObjectId("5cab84c0d00e4ea42e09424d"),
+        "name" : "Mike",
+        "home_state" : "OKC",
+        "lucky_no" : 7,
+        "birthday" : {
+                "month" : 2,
+                "day" : 12,
+                "year" : 1990
+        }
+}
+
+> db.students.find({lucky_no : {$gte: 1, $lte: 9}}).pretty()
+{
+        "_id" : ObjectId("5cab8463d00e4ea42e09424b"),
+        "name" : "Skylar",
+        "home_state" : "Tulsa",
+        "lucky_no" : 6,
+        "birthday" : {
+                "month" : 6,
+                "day" : 18,
+                "year" : 1995
+        }
+}
+{
+        "_id" : ObjectId("5cab8495d00e4ea42e09424c"),
+        "name" : "Cross",
+        "home_state" : "Pryor",
+        "lucky_no" : 9,
+        "birthday" : {
+                "month" : 4,
+                "day" : 22,
+                "year" : 1999
+        }
+}
+{
+        "_id" : ObjectId("5cab84c0d00e4ea42e09424d"),
+        "name" : "Mike",
+        "home_state" : "OKC",
+        "lucky_no" : 7,
+        "birthday" : {
+                "month" : 2,
+                "day" : 12,
+                "year" : 1990
+        }
+}
+
+> db.students.updateMany({}, {$set: {interest: ['coding', 'brunch', 'MongoDB']}})
+{ "acknowledged" : true, "matchedCount" : 5, "modifiedCount" : 4 }
+
+> db.students.update({name: "Mike"}, {$push: {interest: "Hiking"}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.students.find({name: "Mike"}).pretty()
+{
+        "_id" : ObjectId("5cab84c0d00e4ea42e09424d"),
+        "name" : "Mike",
+        "home_state" : "OKC",
+        "lucky_no" : 7,
+        "birthday" : {
+                "month" : 2,
+                "day" : 12,
+                "year" : 1990
+        },
+        "interest" : [
+                "coding",
+                "brunch",
+                "MongoDB",
+                "Hiking"
+        ]
+}
+>
+> db.students.update({name: "Skylar"}, {$addToSet: {interest: "Raving"}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+
+> db.students.update({name: "Cross"}, {$addToSet: {interest: "Hoodies"}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+
+> db.students.update({name: "Kunle"}, {$push: {interest: "Movies"}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+>
+> db.students.update({name: "Kunle"}, {$push: {interest: "taxes"}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+>
+> db.students.update({name: "Kunle"}, {$pull: {interest: "taxes"}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+
+> db.students.find({name: "Kunle"}).pretty()
+{
+        "_id" : ObjectId("5cab84f8d00e4ea42e09424e"),
+        "name" : "Kunle",
+        "home_state" : "Tulsa",
+        "lucky_no" : 77,
+        "birthday" : {
+                "month" : 8,
+                "day" : 9,
+                "year" : 1992
+        },
+        "interest" : [
+                "coding",
+                "brunch",
+                "MongoDB",
+                "Movies"
+        ]
+}
+
+> db.students.remove({home_state: "Tulsa"})
+WriteResult({ "nRemoved" : 2 })
+
+ db.students.remove({name: "Cross"}, true)
+WriteResult({ "nRemoved" : 1 })
+
+> db.students.updateMany({}, {$set: {no_of_belts : 0}})
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+
+> db.students.updateMany({}, {$inc: {no_of_belts: 1}})
+{ "acknowledged" : true, "matchedCount" : 2, "modifiedCount" : 2 }
+
+> db.students.updateMany({}, {$rename: {no_of_belts: "belts_earned"}})
+{ "acknowledged" : true, "matchedCount" : 2, "modifiedCount" : 2 }
+
+> db.students.updateMany({}, {$unset: {lucky_no : ""}})
+{ "acknowledged" : true, "matchedCount" : 2, "modifiedCount" : 1 }
+
+> db.students.updateMany({}, {$set: {updated_on : Date()}})
+{ "acknowledged" : true, "matchedCount" : 2, "modifiedCount" : 2 }
+> db.students.find().pretty()
+{
+        "_id" : ObjectId("5cab8523d00e4ea42e09424f"),
+        "name" : "Jeremy",
+        "home_state" : "Austin",
+        "birthday" : {
+                "month" : 11,
+                "day" : 1,
+                "year" : 1990
+        },
+        "interest" : [
+                "coding",
+                "brunch",
+                "MongoDB"
+        ],
+        "belts_earned" : 2,
+        "updated_on" : "Mon Apr 08 2019 14:08:12 GMT-0500 (Central Standard Time)"
+}
+{
+        "_id" : ObjectId("5cab9597ec18debf9c8bcb26"),
+        "name" : "Wale",
+        "home_state" : "Texas",
+        "belts_earned" : 1,
+        "updated_on" : "Mon Apr 08 2019 14:08:12 GMT-0500 (Central Standard Time)"
+}
+>
