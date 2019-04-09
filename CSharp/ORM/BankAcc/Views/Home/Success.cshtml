@@ -11,14 +11,24 @@
                     Sum += (decimal)usertrans.Amount;
                 }
             }
+<<<<<<< HEAD
             <a href="/logout" class="offset-10">Logout</a>  
+=======
+            <a href="/logout">Logout</a>  
+>>>>>>> d677208bca8bb55bdb71ae4ada3923d5152de2c9
             <h3>Current Balance $@Sum</h3>
         </div>   
     </div>
 
+<<<<<<< HEAD
     <div class="form-inline mt-0">
         <form asp-action="Transaction" asp-controller="Home" method="post">
             <span asp-validation-for="Trans.Amount" class="text-danger ml-4"mb-0></span>
+=======
+    <div class="form-inline">
+        <form asp-action="Transaction" asp-controller="Home" method="post">
+            <span asp-validation-for="Trans.Amount" class="text-danger"></span>
+>>>>>>> d677208bca8bb55bdb71ae4ada3923d5152de2c9
             <div class="form-group m-3">
                 <label asp-for="Trans.Amount" class="font-weight-bold text-white"></label>
                 <input asp-for="Trans.Amount" class="form-control bg-light m-3">
@@ -26,7 +36,11 @@
             </div>
         </form>
     </div>
+<<<<<<< HEAD
     <div class="bg-light mr-3 ml-3" style="height: 400px; overflow: auto">
+=======
+    <div class="bg-light mr-3 ml-3" style="height: 460px; overflow: auto">
+>>>>>>> d677208bca8bb55bdb71ae4ada3923d5152de2c9
         <table class="table table-striped">
             <thead scope="col">
                 <tr>

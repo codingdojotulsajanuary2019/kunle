@@ -2,16 +2,22 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+<<<<<<< HEAD
 using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+=======
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+>>>>>>> d677208bca8bb55bdb71ae4ada3923d5152de2c9
 using ProductsAndCats.Models;
 
 namespace ProductsAndCats.Controllers
 {
     public class HomeController : Controller
     {
+<<<<<<< HEAD
         private MyContext dbContext;
         public HomeController(MyContext context)
         {
@@ -177,5 +183,14 @@ namespace ProductsAndCats.Controllers
                 return View("AddProduct", category);
             }          
         }
+=======
+        [Route("")]
+        [HttpGet]
+        public IActionResult Index()
+        {
+            return View();
+        }
+
+>>>>>>> d677208bca8bb55bdb71ae4ada3923d5152de2c9
     }
 }

@@ -38,9 +38,12 @@ namespace LoginRegistration.Migrations
 
                     b.Property<DateTime>("UpdatedAt");
 
+<<<<<<< HEAD
                     b.Property<string>("Username")
                         .IsRequired();
 
+=======
+>>>>>>> d677208bca8bb55bdb71ae4ada3923d5152de2c9
                     b.HasKey("UserId");
 
                     b.ToTable("Users");

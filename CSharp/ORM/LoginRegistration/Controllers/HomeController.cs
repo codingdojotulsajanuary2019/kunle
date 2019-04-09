@@ -7,7 +7,10 @@ using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
+<<<<<<< HEAD
 using System.Text.RegularExpressions;
+=======
+>>>>>>> d677208bca8bb55bdb71ae4ada3923d5152de2c9
 using LoginRegistration.Models;
 
 namespace LoginRegistration.Controllers
@@ -38,6 +41,7 @@ namespace LoginRegistration.Controllers
                     ModelState.AddModelError("Email", "Email already exists!");
                     return View("Index");
                 }
+<<<<<<< HEAD
                 Regex rgx = new Regex(@"^[a-zA-Z]+$");
                 if(rgx.IsMatch(newUser.Username))
                 {
@@ -58,6 +62,20 @@ namespace LoginRegistration.Controllers
                     ModelState.AddModelError("Username", "Username must be letters only");
                     return View("Index");
                 }
+=======
+
+                PasswordHasher<User> Hasher = new PasswordHasher<User>();
+                newUser.Password = Hasher.HashPassword(newUser, newUser.Password);
+
+                dbContext.Add(newUser);
+                dbContext.SaveChanges();
+
+                User thisUser = dbContext.Users.Last();
+                int id = thisUser.UserId;
+                HttpContext.Session.SetInt32("UserId", id);
+
+                return RedirectToAction("Success", new{id = id});
+>>>>>>> d677208bca8bb55bdb71ae4ada3923d5152de2c9
             }
             else
             {

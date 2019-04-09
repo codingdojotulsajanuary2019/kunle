@@ -23,7 +23,10 @@ namespace ProductsAndCats
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+<<<<<<< HEAD
             services.AddDbContext<MyContext>(options => options.UseMySql(Configuration["DBInfo:ConnectionString"]));
+=======
+>>>>>>> d677208bca8bb55bdb71ae4ada3923d5152de2c9
             services.AddSession();            
             services.AddMvc();
         }

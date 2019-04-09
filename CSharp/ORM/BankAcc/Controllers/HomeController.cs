@@ -104,12 +104,18 @@ namespace BankAccounts.Controllers
             {
                 thisUser = dbContext.Users.Include(u => u.UserTransactions)
                 .FirstOrDefault(u => u.UserId == (int)userId)
+<<<<<<< HEAD
+=======
+
+                // allTransactions = dbContext.Transactions.Where(u => u.UserId == (int)userId).ToList()
+>>>>>>> d677208bca8bb55bdb71ae4ada3923d5152de2c9
             };
 
             return View(trans);
         }
 
         [HttpPost("process/trans")]
+<<<<<<< HEAD
         public IActionResult Transaction(Transaction Trans)
         {
             int? userId = HttpContext.Session.GetInt32("UserId");
@@ -141,13 +147,49 @@ namespace BankAccounts.Controllers
                 };
 
                 dbContext.Add(newTransaction);               
+=======
+        public IActionResult Transaction(Transaction newTrans)
+        {
+            int? userId = HttpContext.Session.GetInt32("UserId");
+            // INSERT INTO `bankacc`.`transactions` (`TransactionId`, `Amount`, `CreatedAt`, `UpdatedAt`, `UserId`) VALUES ('4', '81.15', '2019-03-16 15:45:11.748030', '2019-03-16 15:45:11.748030', '1');
+
+
+            if(ModelState.IsValid)
+            {
+                
+                User myUser = dbContext.Users.Include(u => u.UserTransactions)
+                .FirstOrDefault(u => u.UserId == (int)userId);
+                
+                myUser.UserTransactions.Add(newTrans);
+
+                // Transaction newTransaction = new Transaction()
+                // {
+                //     Amount = newTrans.Amount
+                // };
+                // newTransaction.UserId = (int)userId;
+
+                // newTrans.UserId = (int)userId;
+                // newTrans.Amount = newTrans.Amount;
+
+                // ViewModel trans = new ViewModel
+                // {
+                //     thisUser = dbContext.Users.Include(u => u.UserTransactions)
+                //     .FirstOrDefault(u => u.UserId == (int)userId).Add(newTrans)
+
+                // }
+                // ViewModel 
+                // dbContext.Transactions.Add(newTransaction);
+>>>>>>> d677208bca8bb55bdb71ae4ada3923d5152de2c9
                 dbContext.SaveChanges();
 
                 return RedirectToAction("Success", new{id = (int)userId});
             }
             else
             {
+<<<<<<< HEAD
                 Console.WriteLine("Input is wrong");
+=======
+>>>>>>> d677208bca8bb55bdb71ae4ada3923d5152de2c9
                 ViewModel trans = new ViewModel
                 {
                     thisUser = dbContext.Users.Include(u => u.UserTransactions)

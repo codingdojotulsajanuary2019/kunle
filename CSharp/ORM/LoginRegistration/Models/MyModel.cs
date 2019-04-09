@@ -21,10 +21,13 @@ namespace LoginRegistration.Models
        public string LastName {get; set;}
 
        [Required]
+<<<<<<< HEAD
        [MinLength(2, ErrorMessage="Username must be atleast 2 characters")]
        public string Username {get; set;} ="";
 
        [Required]
+=======
+>>>>>>> d677208bca8bb55bdb71ae4ada3923d5152de2c9
        [DataType(DataType.EmailAddress, ErrorMessage="Invalid Email Address")]
        public string Email {get; set;}
 
@@ -32,6 +35,10 @@ namespace LoginRegistration.Models
        [MinLength(8, ErrorMessage="Password must be atleast 8 character long")]
        [DataType(DataType.Password)]
        public string Password {get; set;}
+<<<<<<< HEAD
+=======
+
+>>>>>>> d677208bca8bb55bdb71ae4ada3923d5152de2c9
        public DateTime CreatedAt {get; set;} = DateTime.Now;
        public DateTime UpdatedAt {get; set;} = DateTime.Now;
 
