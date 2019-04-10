@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body class="bg-secondary">
+    <div class="container col-8 border rounded bg-light mt-3 p-3">
+        <h3 class="display-4 mb-5">Here are the awesome quotes!</h3>
+        <% for(var x in allquotes) { %>
+            <div class="bg-secondary text-white pl-2 rounded">
+                <h4><%= JSON.stringify (allquotes[x].quote) %></h4> 
+                <p class="ml-5 text-warning font-italic"> <%= allquotes[x].name %> at <%= allquotes[x].createdAt %></p>
+            </div>
+        <% } %>
+    </div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body class="bg-secondary pt-5">
+    <a href="/" class="offset-8">Go back</a>
+    <div class="container col-6 border border-warning rounded mt-3 p-3 bg-light">
+        <p><span class="col-sm-3 font-weight-bold">Name:</span><%=thisBingo.name %></p>
+        <p><span class="col-sm-3 font-weight-bold">Favorite Meal:</span><%=thisBingo.meals %></p>
+        <p><span class="col-sm-3 font-weight-bold">Age:</span><%=thisBingo.age %></p>
+        <p><span class="col-sm-3 font-weight-bold">Created At:</span><%=thisBingo.createdAt.toDateString() %></p>
+    </div>
+</body>
+</html>

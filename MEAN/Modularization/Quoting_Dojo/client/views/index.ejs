@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body class="bg-secondary">
+    <div class="container col-4 border border-warning rounded mt-5 p-3 bg-light">
+        <h3 class="display-4">Welcome to Quoting Dojo</h3>
+        <%= JSON.stringify(x) %>
+        <% if(messages.invalid) { %>
+            <% for(var x of messages.invalid) { %>
+                <p class="text-danger"><%=  x %></p>
+            <% } %>
+        <% } %>
+
+        <form action="/quotes" method="post">
+            
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" name="name" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="quote">Quote</label>
+                <input type="text" name="quote" class="form-control">
+            </div>
+            
+            <button type="submit" class="btn btn-success">Add my quote!</button>
+            <a href="/quotes" class="btn btn-primary offset-4">Skip to quotes!</a>
+        </form>
+    </div>
+</body>
+</html>

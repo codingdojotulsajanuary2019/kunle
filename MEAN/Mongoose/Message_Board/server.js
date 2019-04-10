@@ -26,7 +26,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 var session = require('express-session');
 app.use(session({
-    secret: "fineboyXYZ",
+    secret: "fineboyXYZ", 
     resave: false,
     saveUninitialized: true,
     cookie: {maxAge: 60000}

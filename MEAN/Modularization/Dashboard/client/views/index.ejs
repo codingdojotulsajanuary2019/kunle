@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body class="bg-secondary">
+    <div class="container col-8 mt-4">
+        <a href="/bingo/new" class="btn btn-outline-warning offset-10">Add a Bingo!!</a>
+        <h3 class="display-4 m-3 text-warning">Explore our collection of Bingos</h3>
+        <table class="table table-striped bg-light rounded">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Favorite Meals</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            <% if(allBingos) { %>
+                <% for(var x in allBingos) { %>
+                    <tr>
+                        <td><a href="/bingo/<%=allBingos[x]._id%>"> <%= allBingos[x].name %> </a> </td>
+                        <td> <%= allBingos[x].meals %> </td>
+                        <td> <%= allBingos[x].age %> </td>
+                        <td><a href="/bingo/edit/<%= allBingos[x]._id %>">Edit</a>  |  <a href="/bingo/destroy/<%= allBingos[x]._id %>">Delete</a> </td>
+                    </tr>
+                <% } %>
+            <% } %>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
