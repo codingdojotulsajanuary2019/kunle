@@ -1,9 +1,10 @@
 
 <div class="bg-secondary pt-5 editpage">
     <a href="/" class="offset-8">Go back</a>
-    <div class="container col-6 border border-warning rounded mt-3 p-3 bg-light">
+    <div class="theform container col-6 border border-warning rounded mt-3 p-3 bg-light">
 
-        <form action="/Alex" method="put">
+        <form id="editBingo" method="put">
+            <div id="errors"></div>
             <div class="form-group">
                 <label for="name" class="font-weight-bold">Name</label>
                 <input type="text" name="name" id="name" class="form-control">

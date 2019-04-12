@@ -7,11 +7,11 @@ $(document).ready(function(){
 
         for(var idx in data.bingos){
             $('#show').append(`
-                <tr> 
+                <tr class="${idx}"> 
                     <td><a href="" class="abingo" idx="${idx}">${data.bingos[idx].name}</a></td>
                     <td>${data.bingos[idx].meals}</td>
                     <td>${data.bingos[idx].age}</td>
-                    <td><a href="/bingo/edit/" class="edit" idx="${idx}">Edit</a>  |  <a href="/bingo/destroy/" class="delete">Delete</a> </td>
+                    <td><a href="/bingo/edit/" class="edit" idx="${idx}">Edit</a>  |  <a href="/bingo/destroy/" class="delete" idx="${idx}">Delete</a> </td>
                 </tr>
             `)
         }
@@ -36,11 +36,21 @@ $(document).ready(function(){
             e.preventDefault();
             $.get("/newbingo.html", function(res){
                 $('.wrapper').html(res);
-                console.log($('.wrapper').children())
 
                 $('.newbingo').submit(function(event){
                     event.preventDefault();
                     console.log("form submitted");
+                    $.post('/bingo', $('form').serialize(), function(res){
+                        if(typeof res == "object"){
+                            for(let x in res.error.errors){
+                                $('#errors').append(`<p class="text-danger m-0">${res.error.errors[x].message}</p>`);
+                            }
+                            console.log("Unsuccessful");
+                        }
+                        else{
+                            $('.formbody').html('<h3 class="text-success">Bingo Successfully Added</h3>')
+                        }
+                    })
                 })
             });            
         })
@@ -55,7 +65,39 @@ $(document).ready(function(){
                 $('#name').val(`${data.bingos[idx].name}`);
                 $('#meals').val(`${data.bingos[idx].meals}`);
                 $('#age').val(`${data.bingos[idx].age}`);
+
+                let id = data.bingos[idx]._id;
+                $('#editBingo').submit(function(e){
+                    e.preventDefault();                   
+                    $.post(`/${id}`, $('form').serialize(), function(res){
+                        if(typeof res == "object"){
+                            for(let x in res.error.errors){
+                                $('#errors').append(`<p class="text-danger m-0">${res.error.errors[x].message}</p>`);
+                            }
+                        }
+                        else{
+                            $('.theform').html('<h3 class="text-success">Edit Successfull</h3>')
+                        }
+                    })
+                })
             })
         })
+                   
+        $('.delete').click(function(e){
+            e.preventDefault();
+            idx = $(this).attr('idx');
+            console.log(idx);
+            let id = data.bingos[idx]._id;
+
+            $.get(`/destroy/${id}`, function(res){
+                if(typeof res == "object"){
+                    $('#errors').append(`<p class="text-danger m-0">Delete was unsuccessful</p>`);
+                    console.log(res);
+                }
+                else{
+                    $(`.${idx}`).remove();
+                }
+            })  
+        })   
     }
 })
