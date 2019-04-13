@@ -89,15 +89,17 @@ $(document).ready(function(){
             console.log(idx);
             let id = data.bingos[idx]._id;
 
-            $.get(`/destroy/${id}`, function(res){
-                if(typeof res == "object"){
+            $.ajax({url : `/destroy/${id}`, type: "delete", function(res){
+                console.log("Its working");
+                console.log(res["status"])
+                if(res["status"] == "false"){
                     $('#errors').append(`<p class="text-danger m-0">Delete was unsuccessful</p>`);
                     console.log(res);
                 }
                 else{
                     $(`.${idx}`).remove();
                 }
-            })  
+            }})  
         })   
     }
 })

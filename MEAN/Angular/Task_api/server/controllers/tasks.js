@@ -36,7 +36,7 @@ module.exports = {
                 res.json({status:false, error:err});
             }
             else {
-                res.json({status:true, title: title})
+                res.json({status:true, task: title})
             }
         })
     },

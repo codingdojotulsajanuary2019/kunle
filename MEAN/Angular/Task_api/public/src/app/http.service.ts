@@ -7,19 +7,11 @@ import { HttpClient } from '@angular/common/http';
 export class HttpService {
 
   constructor(private _http: HttpClient) { 
-    this.getTasks();
-    this.showTasks("pass in a title");
-    this.deleteTask("pass in a title");
+    
   }
 
   getTasks(){
-    let tempObservable = this._http.get('/tasks');
-    tempObservable.subscribe(data => console.log("Got our tasks!", data));
-  }
-
-  showTasks(title: string){
-    let tempObservable = this._http.get(`/${title}`);
-    tempObservable.subscribe(data => console.log("Got a task!", data));
+    return this._http.get('/tasks');
   }
 
   deleteTask(title: string){
@@ -27,4 +19,8 @@ export class HttpService {
     tempObservable.subscribe(data => console.log("Deleted a task!"));
   }
 
+  getATaskFromDB(title: String){
+    console.log(title, "This is a title");
+    return this._http.get(`/${title}`);
+  }
 }
