@@ -48,6 +48,7 @@ export class ShowAllCakeComponent implements OnInit {
 
   showThisCake(cake){
     this.cakeClicked = cake;
+    console.log(cake);
   }
 
   // populate(){

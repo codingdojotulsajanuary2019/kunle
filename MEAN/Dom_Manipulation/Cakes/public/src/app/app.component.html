@@ -1,36 +1,9 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div class="bg-secondary">
-    <div class="container col-10 pb-3">
+    <div class="container col-10 pb-3" style="height: 700px;">
         <h3 class="display-4 text-white mb-2 text-center">Rate my cakes</h3>
         <app-add-cake [cakeToAdd]="newCake"></app-add-cake>
         <app-show-all-cake></app-show-all-cake>
-        
-        <!-- <div *ngIf="allCakes.length > 0" class="bg-light p-2 mt-3" style="height: 600; overflow: auto;">
-    
-            <div *ngFor="let cake of allCakes" class="container col-6 d-inline-block">
-                <a href="" class="d-inline-block mr-3"><img [src]="cake.imageURL" alt="cakeImage" height="200" width="200"></a>
-                <div class="d-inline-block align-top col-6 rounded bg-secondary mr-2 p-3 mb-4">
-                    <p *ngIf="commentStatus" class="text-{{ color }}">{{ commentStatus }}</p>
-                    <form>
-                        <div class="form-group rounded">
-                            <select name="rating" class="form-control" [(ngModel)] = "cakeComment.rating">
-                                <option selected value="">Rate this cake</option>
-                                <option value="1">1 star</option>
-                                <option value="2">2 star</option>
-                                <option value="3">3 star</option>
-                                <option value="4">4 star</option>
-                                <option value="5">5 star</option>
-                            </select>
-                        </div>
-                        <div class="form-group rounded">
-                            <textarea name="coment" [(ngModel)] = "cakeComment.comment" class="form-control" rows="2" placeholder="Type your comment here"></textarea>
-                        </div>  
-                        <button class="btn btn-success offset-8" (click)="addCommentToCake(cake)">Rate!</button>           
-                    </form>           
-                </div>
-            </div>
-
-        </div> -->
     </div>
 </div>
 <router-outlet></router-outlet>

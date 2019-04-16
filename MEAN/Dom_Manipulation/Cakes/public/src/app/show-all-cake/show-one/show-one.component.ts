@@ -13,8 +13,5 @@ export class ShowOneComponent implements OnInit {
 
   ngOnInit() {
   }
-  // for(let coment  this.cakeToShow.coment){
-
-  // }
 
 }

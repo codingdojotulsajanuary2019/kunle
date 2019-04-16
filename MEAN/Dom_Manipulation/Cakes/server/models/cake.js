@@ -15,7 +15,7 @@ const CakeSchema = new mongoose.Schema({
             }
         }
     ],
-    average_rating: Number
+    average_rating: {type: Number, default: 0}
 }, {timestamps: true});
 
 mongoose.model('Cake', CakeSchema);

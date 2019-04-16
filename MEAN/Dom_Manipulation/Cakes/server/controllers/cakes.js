@@ -31,18 +31,20 @@ module.exports = {
             if(cake){
                 let sum = 0;
                 let num =0;
+                             
+                cake.comment.push(req.body);
+                
                 for(let x in cake.comment){
                     if(cake.comment[x].rating){
                         sum += cake.comment[x].rating;
+                        console.log(cake.comment[x].rating)
                         num ++;
                     }
-                }
-                sum += req.body.rating;
-                sum = sum/(num +1);
+                }           
+                sum = sum/num;
                 console.log(sum);
-
                 cake.average_rating = sum;
-                cake.comment.push(req.body);
+
                 cake.save((err) => {
                     if(err){
                         console.log(err)
@@ -50,6 +52,7 @@ module.exports = {
                     }
                     else{
                         console.log("done");
+                        req.body.rating = 0;
                         res.json({status: true});
                     }
                 })

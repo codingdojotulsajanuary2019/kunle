@@ -1,8 +1,13 @@
-<div class="container col-12 d-inline-block">
-    <img [src]="cakeToShow.imageURL" alt="cakeImage" height="300" width="400" class="d-inline-block mr-3">
-    <div class="d-inline-block align-top col-6 rounded bg-secondary mr-2 p-3 mb-4">
-        <p>Average rating: {{ cakeToShow.average_rating}} stars </p>
-        
-    </div>
+<div class="container col-12 d-inline-block mt-5 rounded bg-light p-2">
+  <h3 class="mb-3 bg-secondary p-2 text-light">Baked by {{ cakeToShow.baker }}</h3>
+    <img [src]="cakeToShow.imageURL" alt="cakeImage" height="220" width="300" class="d-inline-block mr-3">
+    <div class="d-inline-block align-top col-6 rounded bg-secondary p-3">
+        <h5 class="text-white">Average rating: {{ cakeToShow.average_rating}} stars </h5>
 
+        <div *ngFor="let comment of cakeToShow.comment" class="bg-light rounded pl-2">
+          <p class="font-weight-bold mb-0">{{ comment.comment }}</p>
+          <p class="ml-3 mt-0 font-weight-bold">{{ comment.rating }} stars</p>
+        </div>
+
+    </div>
 </div>
