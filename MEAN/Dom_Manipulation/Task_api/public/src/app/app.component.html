@@ -1,0 +1,41 @@
+
+<div style="text-align:center">
+  <h1>
+    Restful Tasks API
+  </h1>
+</div>
+<div class="bg-secondary">
+  <p class="">Search for a Task  <input (keyup)="findATask($event)" type="text" placeholder="enter task name"> <button (click)="findTask()">FIND</button></p>
+  
+  <h2>Here are all the tasks: </h2>
+  <div class="container bg-light col-6 ">
+    <p *ngFor = "let error of errors">{{ error }}</p>
+    <form (submit) = "onSubmit()">
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text"  class="form-control" name="newTask.title" [(ngModel)] = "newTask.title">
+      </div>
+      
+      <div class="form-group">
+        <label for="Description">Description</label>
+        <input type="text"  class="form-control" name="newTask.description" [(ngModel)] = "newTask.description">
+      </div>
+      
+      <button type="submit">Submit</button>
+    </form>
+    
+    <button (click)="getAllTask()">GET ALL TASKS</button>
+    <div *ngIf="tasks.length > 0">
+      <div *ngFor="let task of tasks">
+        <h5>{{ task["title"] }}</h5>
+        <button (click)="showClickedTask(task)">EDIT</button>
+        <button (click)="destroyTask(task)">DELETE</button>
+      </div>
+    </div>   
+    <app-showTask *ngIf="ATask" [taskToShow]="ATAsk"></app-showTask>
+  </div>
+</div>
+  
+  
+  <router-outlet></router-outlet>
+  

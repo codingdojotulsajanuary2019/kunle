@@ -1,0 +1,24 @@
+<div>
+    <form (submit) = "editTask()">
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" class="form-control" name="taskToShow.title" [(ngModel)] = "taskToShow.title">
+      </div>
+      
+      <div class="form-group">
+        <label for="Description">Description</label>
+        <input type="text" class="form-control" name="taskToShow.description" [(ngModel)] = "taskToShow.description">
+      </div>
+
+      <div class="form-group">
+        <label for="Description">Completed</label>
+        <select name="taskToShow.completed" [(ngModel)] = "taskToShow.completed">
+          <option value="true">True</option>
+          <option value="false">False</option>
+        </select>
+      </div>
+      
+      <button type="submit">Submit</button>
+    </form>
+
+  </div>
