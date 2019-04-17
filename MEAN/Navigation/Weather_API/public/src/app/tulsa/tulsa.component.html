@@ -1,0 +1,36 @@
+<div class="bg-light">
+  <h3 class="display-4 text-center">Tulsa, Ok</h3>
+
+  <div *ngIf="tulsa" class="container p-2 col-11">
+    <div  class="container col-5 d-inline-block mr-5 pb-2">
+      <img src="http://openweathermap.org/img/w/{{tulsa.weather[0].icon}}.png" alt="tulsa" height="150" width="130">
+      
+      <table class="table">
+        <tr>
+          <td>Humidity</td>
+          <td class="font-weight-bold">{{ tulsa.main.humidity }} %</td>
+        </tr>
+        <tr>
+          <td>Temperature Average</td>
+          <td class="font-weight-bold">{{ tulsa.main.temp }} &deg;F</td>
+        </tr>
+        <tr>
+          <td>Temperature (High)</td>
+          <td class="font-weight-bold">{{ tulsa.main.temp_max }} &deg;F</td>
+        </tr>
+        <tr>
+          <td>Temperature (Low)</td>
+          <td class="font-weight-bold">{{ tulsa.main.temp_min }} &deg;F</td>
+        </tr>
+        <tr>
+          <td>Status</td>
+          <td class="font-weight-bold">{{ tulsa.weather[0].description }}</td>
+        </tr>
+      </table>
+    </div>
+    
+    <div class="d-inline-block align-bottom pb-4 ml-5">
+      <img src="assets/images/Tulsa.jpg" alt="tulsa" height="330" width="460">
+    </div>   
+  </div>
+</div>

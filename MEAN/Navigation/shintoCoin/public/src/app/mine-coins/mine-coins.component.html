@@ -1,0 +1,13 @@
+<div class="bg-light mt-3 p-3">
+  <h4 class="display-4">Mine XycloCoins</h4>
+  <p class="lead font-weight-bold">Here you can mine XycloCoins by being the first to solve the algorithm.</p>
+
+  <div *ngIf="question" class="container col-6 bg-secondary rounded text-light mt-5 p-3">
+
+    <form action="">
+      <h4>{{ question.results[(num)].question }}</h4>
+      <p><input type="checkbox" [value]="question.results[(num)].correct_answer"> {{ question.results[(num)].correct_answer }}</p>
+      <p *ngFor="let option of question.results[(num)].incorrect_answers"> <input type="checkbox" [value]="option">{{ option }} </p>
+    </form> 
+  </div>
+</div>

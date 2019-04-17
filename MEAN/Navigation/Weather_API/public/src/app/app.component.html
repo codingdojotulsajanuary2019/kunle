@@ -1,0 +1,23 @@
+<div class="bg-secondary">
+  <div class="container col-10 pb-4">
+    <h3 class="display-4 text-light">Dojo Weather Forecast</h3>
+
+    <div class="navbar navbar-expand-lg bg-dark">
+      <ul class="navbar-nav mr-5">
+        <li class="nav-item active">
+          <a [routerLink]="['/tulsa']" class="nav-link"> Tulsa Ok</a>
+        </li> 
+        <li class="nav-item">
+          <a [routerLink]="['/seattle']" class="nav-link"> Seattle WA</a>
+        </li> 
+        <li class="nav-item">
+          <a [routerLink]="['/san-jose']" class="nav-link"> San Jose CA</a>
+        </li>
+      </ul>
+    </div>
+
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+
