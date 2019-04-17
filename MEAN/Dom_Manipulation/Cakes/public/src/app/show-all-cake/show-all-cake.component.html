@@ -5,6 +5,7 @@
         <a (click)="showThisCake(cake)" class="d-inline-block mr-3"><img [src]="cake.imageURL" alt="cakeImage" height="200" width="200"></a>
         <div class="d-inline-block align-top col-6 rounded bg-secondary mr-2 p-3 mb-4">
             <p *ngIf="commentStatus" class="text-{{ color }}">{{ commentStatus }}</p>
+
             <form>
                 <div class="form-group rounded">
                     <select name="rating" class="form-control" [(ngModel)] = "cakeComment.rating">

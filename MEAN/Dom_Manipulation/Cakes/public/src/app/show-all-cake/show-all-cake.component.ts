@@ -11,7 +11,7 @@ export class ShowAllCakeComponent implements OnInit {
   cakeComment : any;
   commentStatus : String;
   color : String;
-  cakeClicked : any;
+  cakeClicked : any;;
 
   constructor(private _httpService: HttpService) { }
 
@@ -46,13 +46,13 @@ export class ShowAllCakeComponent implements OnInit {
     })
   }
 
+  // trackByFn(index, cake) {
+  //   return index;
+  // }
+
   showThisCake(cake){
     this.cakeClicked = cake;
     console.log(cake);
   }
-
-  // populate(){
-  //   this.cakeComment = {comment: "abc", rating: Number}
-  // }
 
 }
