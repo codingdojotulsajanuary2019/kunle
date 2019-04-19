@@ -1,0 +1,16 @@
+<div class="container col-12 bg-light rounded mt-4 pb-3">  
+
+  <h1>Product List</h1>
+  <div *ngIf="allProducts" class="mt-4">
+
+    <div *ngFor="let product of allProducts" class="container col-3 d-inline-block p-0" >
+      <img [src]="product.imageURL" [alt]="product.title" class="ml-5" height="200" width="220">
+      <h4 class="text-center">{{product.title}}</h4>
+      <h4 class="text-center mb-4">${{product.price}}</h4>
+      <a [routerLink]="['edit', product._id]" class="btn btn-lg btn-success ml-5 mr-5">Edit</a>
+      <button (click)="deleteOne(product._id)" class="btn btn-lg btn-warning">Delete</button>
+    </div>
+
+  </div>
+</div>
+  

@@ -1,0 +1,30 @@
+<div class="container col-10 bg-light rounded mt-4 pb-3">  
+    <div class="container col-8 mt-2">
+      <h1>Create a New Product</h1>
+  
+      <div class="container col-10 rounded border border-secondary p-3 mt-4">
+        <p *ngFor="let error of addErrors" class="text-danger mb-0">{{ error }}</p>
+  
+        <form (click) = "clearError()">
+          <div class="form-group text-dark">
+            <label for="title" class="font-weight-bold">Title </label>
+            <input type="text" name="title" [(ngModel)]="newProduct.title" class="form-control">
+          </div>
+          <div class="form-group text-dark">
+            <label for="price" class="font-weight-bold"> Price </label>
+            <input type="text" name="price" [(ngModel)]="newProduct.price" class="form-control">
+          </div>
+          <div class="form-group text-dark">
+            <label for="image" class="font-weight-bold"> Image url </label>
+            <input type="text" name="image" [(ngModel)]="newProduct.imageURL" class="form-control">
+          </div>
+  
+          <a [routerLink]="['/products']" class="btn btn-lg btn-warning">Cancel</a>
+          <button (click)="addProductToDB()" class="btn btn-lg btn-primary offset-5">Submit</button>
+        </form>
+      </div>
+  
+    </div>
+  
+  </div>
+  
