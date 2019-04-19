@@ -1,0 +1,23 @@
+<div class="container col-10 bg-light rounded mt-4 pb-3">
+  <a [routerLink]="['/']">Home</a>
+
+  <div class="container col-8 mt-4">
+    <h5>Add a new author:</h5>
+
+    <div class="container col-10 rounded border border-secondary p-3">
+
+      <form action="">
+        <div class="form-group text-dark">
+          <label for="author" class="font-weight-bold"> Name: </label>
+          <input type="text" name="author" [(ngModel)]="newAuthor.name" class="form-control">
+        </div>
+
+        <a [routerLink]="['/']" class="btn btn-lg btn-warning">Cancel</a>
+        <button (click)="addAuthortoDB()" class="btn btn-lg btn-primary offset-5">Submit</button>
+      </form>
+      <!-- <p *ngIf="success == true" [routerLink]="['']" class="text-dark">Yes</p> -->
+    </div>
+
+  </div>
+
+</div>

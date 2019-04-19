@@ -13,11 +13,8 @@ const routes: Routes = [
   { path: 'mine', component: MineCoinsComponent },
   { path: 'buy-coin', component: BuyCoinComponent },
   { path: 'sell-coin', component: SellCoinComponent },
-  { path: 'ledger', component: LedgerComponent, children:
-    [
-      { path: 'transaction', component: TransactionComponent }
-    ] 
-  },
+  { path: 'ledger', component: LedgerComponent },
+  { path: 'ledger/transaction/:id', component: TransactionComponent },
   { path: '', pathMatch: 'full', redirectTo: '/home' },
   { path: '**', component: PageNotFoundComponent }
 ];
