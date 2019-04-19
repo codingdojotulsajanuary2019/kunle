@@ -1,0 +1,66 @@
+<div class="container col-8 bg-light rounded mt-4 pb-3 border border-primary">
+  <h2>Submit a movie and your review</h2>
+
+  <div class="container col-10 mt-5">
+    <p *ngFor="let error of addErrors" class="text-danger mb-0">{{ error }}</p>
+
+    <form (click) = "clearError()">
+        
+        <div *ngIf="title.errors && (title.dirty || title.touched)" class="alert alert-danger">
+            <div [hidden]="!title.errors.required">
+              Movie title is required!
+            </div>
+            <div [hidden]="!title.errors.minlength">
+              Title must be at least 3 characters long.
+            </div>
+        </div>
+        <div *ngIf="Uname.errors && (Uname.dirty || Uname.touched)" class="alert alert-danger">
+            <div [hidden]="!Uname.errors.required">
+              Provide a name!
+            </div>
+            <div [hidden]="!Uname.errors.minlength">
+              Name must be at least 3 characters long.
+            </div>
+        </div>
+        <div *ngIf="comment.errors && (comment.dirty || comment.touched)" class="alert alert-danger">
+            <div [hidden]="!comment.errors.required">
+              Comment is required!
+            </div>
+            <div [hidden]="!comment.errors.minlength">
+              Comment must be at least 3 characters long.
+            </div>
+        </div>
+
+        <div class="form-group text-dark">
+          <label for="title" class="font-weight-bold">Movie Title </label>
+          <input type="text" name="title" [(ngModel)]="movie.title" required minlength="3" #title="ngModel" class="form-control">
+        </div>
+
+        <div class="form-group text-dark">
+          <label for="price" class="font-weight-bold"> Your Name </label>
+          <input type="text" name="Username" [(ngModel)]="movie.comment.name" required minlength="3" #Uname="ngModel" class="form-control">
+        </div>
+
+        <div>
+          <label for="stars" class="font-weight-bold"> Stars </label>
+          <select name="stars" [(ngModel)]="movie.comment.rating" class="form-control">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+
+        <div class="form-group rounded">
+            <label for="review" class="font-weight-bold"> Your review </label>
+            <textarea name="review" [(ngModel)] = "movie.comment.review" required minlength="3" #comment="ngModel" class="form-control" rows="2" placeholder="Type your comment here"></textarea>
+        </div>
+
+        <a (click)="returnToMovie()" class="btn btn-lg btn-warning">Cancel</a>
+        <button (click)="addMovieToDB()" class="btn btn-lg btn-primary offset-5">Submit</button>
+    </form>
+  </div>
+
+</div>
+

@@ -1,0 +1,26 @@
+<div class="container col-8 bg-light rounded mt-4 pb-3">
+  <h2 class="d-inline-block">Movie List</h2>
+  <a (click)="initAddNew()" class="btn btn-success offset-7 d-inline-block align-bottom">Add a new movie</a>
+
+  <div *ngIf="allMovies" class="container col-10 mt-5">
+    <table class="table table-striped text-center table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">Movie title</th>
+          <th scope="col">Average Rating</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let movie of allMovies">
+          <td>{{ movie.title }}</td>
+          <td>{{ movie.average_rating }}</td>
+          <td> <a [routerLink]="['/movies', movie._id]" class="btn btn-primary mr-3">Read reviews</a> <a [routerLink]="['/movies', movie._id, 'review']" class="btn btn-warning">Write review</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <app-new-movie *ngIf="movie && status == true" [movie]="movie" (aTaskEmitter)="eventParent()"></app-new-movie>
+
+</div>

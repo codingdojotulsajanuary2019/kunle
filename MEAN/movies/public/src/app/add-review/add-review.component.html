@@ -1,0 +1,35 @@
+<div *ngIf="comment" class="container col-8 bg-light rounded mt-4 pb-3 border border-primary">
+  <h2>Add a review for {{movie.title}}</h2>
+
+  <div class="container col-10 mt-5">
+    <p *ngFor="let error of addErrors" class="text-danger mb-0">{{ error }}</p>
+
+    <form (click) = "clearError()">
+
+        <div class="form-group text-dark">
+          <label for="price" class="font-weight-bold"> Your Name </label>
+          <input type="text" name="username" [(ngModel)]="comment.name" class="form-control">
+        </div>
+        <div>
+          <label for="stars" class="font-weight-bold"> Stars </label>
+          <select name="stars" [(ngModel)]="comment.rating" class="form-control">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+        <div class="form-group rounded">
+            <label for="review" class="font-weight-bold"> Your review </label>
+            <textarea name="review" [(ngModel)] = "comment.review" class="form-control" rows="2" placeholder="Type your comment here"></textarea>
+        </div>
+
+        <a [routerLink]="['/movies']" class="btn btn-lg btn-warning">Cancel</a>
+        <button (click)="addCommentToMovie()" class="btn btn-lg btn-primary offset-5">Submit</button>
+    </form>
+  </div>
+
+</div>
+  
+  

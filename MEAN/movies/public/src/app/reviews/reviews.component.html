@@ -1,0 +1,25 @@
+<div *ngIf="movie" class="container col-8 bg-light rounded mt-4 pb-3">
+  <h2 class="d-inline-block">Reviews for {{ movie.title }}</h2>
+  <a (click)="takeOutMovie()" class="btn btn-warning offset-5 d-inline-block align-bottom">Delete Movie</a>
+
+  <div class="container col-10 mt-5">
+    <table class="table table-striped text-center table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">Reviewer</th>
+          <th scope="col">Stars</th>
+          <th scope="col">Reviews</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let comm of movie.comment">
+          <td>{{ comm.name }}</td>
+          <td>{{ comm.rating }}</td>
+          <td>{{ comm.review }}</td>
+          <td> <a (click)="deleteComment(comm._id)" class="btn btn-warning mr-3">Delete</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
