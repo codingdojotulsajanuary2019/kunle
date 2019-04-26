@@ -1,0 +1,43 @@
+<div>
+  <div class="bg-primary navbar justify-content-between text-white">
+    <h4 class="display-4">Coin Joint</h4>
+    <div>
+      <h4>Currency </h4>
+      <form action="" class="form-inline">
+        <div class="form-group">
+          <select (click)="getData()" [(ngModel)]="dataCurrency" name="dataCurrency" class="form-control">
+            <option value="USD">USD</option>
+            <option value="GBP">GBP</option>
+            <option value="EUR">EUR</option>
+          </select>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  {{ dataCurrency }}
+  <div *ngIf="currency" class="container col-6 bg-secondary mt-5 rounded">
+    <h3>Available on Coin Joint</h3>
+    <table class="table text-light">
+      <tr>
+        <th>NAME</th>
+        <th>Bitcoin {{ currency.buyprice.data.base}}</th>
+      </tr>
+      <tr>
+        <th>BUY PRICE</th>
+        <th>${{ currency.buyprice.data.amount}}</th>
+      </tr>
+      <tr>
+        <th>SELL PRICE</th>
+        <th>${{ currency.sellPrice.data.amount}}</th>
+      </tr>
+      <tr>
+        <th>CURRENCY</th>
+        <th>{{ currency.sellPrice.data.currency}}</th>
+      </tr>
+    </table>
+  </div>
+
+</div>
+
+<router-outlet></router-outlet>

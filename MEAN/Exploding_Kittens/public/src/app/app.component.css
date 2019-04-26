@@ -1,0 +1,14 @@
+.wrapper{
+    background-color: #990000;
+    height: 657px;
+}
+.subBtn{
+    font-family: 'Dokdo', cursive;
+    font-size: 60px;
+    background-color: #990000;
+    border: 0px;
+    color: #ff6600;
+}
+.sidebar{
+    background-color: #4d0000;
+}
